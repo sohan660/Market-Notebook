@@ -124,3 +124,15 @@ body{overflow-wrap:break-word}
  .fee-track{height:20px}
  .fee-row strong{font-size:10px}
 }
+
+/* Homepage graph: actual proportions from the stated mathematical model. */
+.hero-data-title{font-size:24px;color:#f4fff7;letter-spacing:-.04em;line-height:1.25;margin:0 0 11px}
+.hero-model{display:grid;gap:18px;margin:28px 0 24px}
+.hero-data-row{display:grid;grid-template-columns:54px minmax(0,1fr) 67px;gap:10px;align-items:center}
+.hero-data-row span{color:#b4d5c9;font-size:11px;font-weight:800}
+.hero-data-row strong{text-align:right;color:#dbf8e7;font-size:12px;font-variant-numeric:tabular-nums}
+.hero-bar-track{height:18px;background:#254952;border-radius:4px;overflow:hidden}
+.hero-bar-track i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#72bc91,#b2efcd)}
+.hero-source-link{font-size:12px;font-weight:800;color:#c7f5d7;text-decoration:underline;text-underline-offset:3px;display:inline-flex;min-height:40px;align-items:center}
+.hero-source-link:hover{color:#fff}
+@media(max-width:450px){.hero-data-row{grid-template-columns:48px minmax(0,1fr) 59px;gap:7px}.hero-data-row strong{font-size:11px}.hero-data-title{font-size:22px}}
