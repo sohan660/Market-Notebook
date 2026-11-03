@@ -65,3 +65,6 @@ body{overflow-wrap:break-word}
  .stage{padding:17px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Keep the rising-candlestick SVG mark crisp beside the brand name. */
+.logo img.logoicon{object-fit:contain;flex-shrink:0;display:block;background:transparent}
