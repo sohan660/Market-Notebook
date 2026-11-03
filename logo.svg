@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-label="Ascending stock market candlesticks">
+  <rect width="64" height="64" rx="15" fill="#10252e"/>
+  <g stroke="#c2efd4" stroke-width="2.5" stroke-linecap="round">
+    <path d="M13.5 37.5v17"/>
+    <path d="M26 31v19"/>
+    <path d="M38.5 23v19"/>
+    <path d="M51 10v24"/>
+  </g>
+  <g>
+    <rect x="9.5" y="42" width="8" height="9" rx="1.9" fill="#71d49a"/>
+    <rect x="22" y="35" width="8" height="12" rx="1.9" fill="#83deaa"/>
+    <rect x="34.5" y="27" width="8" height="12" rx="1.9" fill="#9fe8bb"/>
+    <rect x="47" y="15" width="8" height="14" rx="1.9" fill="#c2f4d4"/>
+  </g>
+</svg>
