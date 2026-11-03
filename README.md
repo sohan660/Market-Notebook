@@ -1,6 +1,6 @@
-# Beginner Investment Guide
+# Your First Share — Beginner Investing Guide
 
-A free, educational website built by Sohan Shrestha for college students who want to understand stocks, ETFs, investing habits, and lessons from well-known investors. This is **not investment advice**.
+**Your First Share** is a free, educational website built by Sohan Shrestha for college students who want to understand stocks, ETFs, investing habits, and lessons from well-known investors. This is **not investment advice**.
 
 ## Pages
 - `index.html`: landing page
