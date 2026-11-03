@@ -136,3 +136,13 @@ body{overflow-wrap:break-word}
 .hero-source-link{font-size:12px;font-weight:800;color:#c7f5d7;text-decoration:underline;text-underline-offset:3px;display:inline-flex;min-height:40px;align-items:center}
 .hero-source-link:hover{color:#fff}
 @media(max-width:450px){.hero-data-row{grid-template-columns:48px minmax(0,1fr) 59px;gap:7px}.hero-data-row strong{font-size:11px}.hero-data-title{font-size:22px}}
+
+/* GuruFocus disclosure chart. Bars encode position concentration, not returns. */
+.concentration-row{display:grid;grid-template-columns:148px minmax(0,1fr) 52px;gap:14px;align-items:center;margin:17px 0;font-size:12px;font-weight:800}
+.concentration-row span{line-height:1.3}
+.concentration-row small{display:block;font-size:10px;color:#677b76;font-weight:600;margin-top:3px}
+.concentration-row strong{font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
+.concentration-track{height:22px;background:#e8f0ea;border-radius:4px;overflow:hidden}
+.concentration-track i{display:block;height:100%;background:linear-gradient(90deg,#1f755b,#83c89a);border-radius:4px}
+.data-viz a:not(.btn){color:#176b51;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:640px){.concentration-row{grid-template-columns:100px minmax(0,1fr) 42px;gap:8px;font-size:11px}.concentration-row strong{font-size:11px}.concentration-track{height:19px}}
