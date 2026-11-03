@@ -68,3 +68,59 @@ body{overflow-wrap:break-word}
 
 /* Keep the rising-candlestick SVG mark crisp beside the brand name. */
 .logo img.logoicon{object-fit:contain;flex-shrink:0;display:block;background:transparent}
+
+/* Student-friendly charts. Static source data; no charting library or tracking. */
+.chart-section{scroll-margin-top:100px}
+.data-viz{background:#fff;border:1px solid #dbe7de;border-radius:18px;padding:26px;margin:22px 0 17px;box-shadow:0 8px 26px rgba(18,53,46,.045)}
+.chart-title{font-size:18px;letter-spacing:-.03em;margin:0 0 18px}
+.chart-key{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 21px;font-size:12px;font-weight:700;color:#526d63}
+.chart-key span{display:flex;align-items:center;gap:7px}
+.chart-key i{display:inline-block;width:12px;height:12px;border-radius:3px}
+.key-principal{background:#193b45}.key-growth{background:#7dc9a0}.key-berkshire{background:#167953}.key-market{background:#e7a45e}
+.visual-row{display:grid;grid-template-columns:78px minmax(0,1fr);align-items:center;gap:15px;margin:18px 0}
+.visual-year{color:#405d59;font-size:13px;font-weight:800}
+.visual-value{display:flex;align-items:center;gap:13px;min-width:0}
+.visual-value strong{font-size:14px;white-space:nowrap;color:#1a3833;width:82px;text-align:right;font-variant-numeric:tabular-nums}
+.stack-track{height:25px;display:flex;align-items:stretch;flex:1;background:#edf3ef;border-radius:5px;overflow:hidden}
+.principal-segment{background:#193b45}.earnings-segment{background:#7dc9a0}
+.chart-caption{margin-top:18px;margin-bottom:0}
+.returns-group{display:grid;grid-template-columns:57px minmax(0,1fr);gap:15px;padding:13px 0;border-bottom:1px solid #edf1ee}
+.returns-group:last-of-type{border-bottom:none}
+.return-year{font-weight:800;color:#244842;font-size:14px;padding-top:14px}
+.return-pair{display:grid;gap:8px;min-width:0}
+.return-line{display:grid;grid-template-columns:80px minmax(0,1fr) 58px;align-items:center;gap:9px;font-size:12px}
+.return-label{font-size:11px;color:#58716c;font-weight:700}
+.return-line strong{text-align:right;font-size:12px;font-variant-numeric:tabular-nums;color:#286c51}
+.return-line strong.negative{color:#a94848}
+.return-track{position:relative;height:15px;background:#f0f4f1;border-radius:3px}
+.return-zero{position:absolute;left:50%;top:0;bottom:0;width:1px;background:#6c7e7b;z-index:1}
+.return-bar{height:13px;position:absolute;top:1px;border-radius:2px}
+.return-bar.berkshire.up{background:#16825b}.return-bar.market.up{background:#e2a15f}
+.return-bar.down{background:#b95b5b!important}
+.return-axis{margin:9px 66px 0 160px;display:flex;justify-content:space-between;font-size:11px;color:#667d75}
+.fee-row{display:grid;grid-template-columns:136px minmax(0,1fr) 80px;align-items:center;gap:14px;margin:18px 0;font-size:13px;font-weight:700}
+.fee-row strong{text-align:right;color:#213b35;font-variant-numeric:tabular-nums}
+.fee-track{height:26px;background:#edf3ef;overflow:hidden;border-radius:5px}
+.fee-fill{height:100%;background:linear-gradient(90deg,#1d644f,#6ebc8c);border-radius:5px}
+.chart-details{background:#f8faf8;margin:15px 0;border:1px solid #dfebe0}
+.chart-details[open] summary{margin-bottom:15px}
+.chart-details .tablebox{margin-bottom:0}
+.chart-details table{min-width:450px}
+@media(max-width:990px){.navlinks{display:none}.mobile-menu{display:block}}
+@media(max-width:640px){
+ .data-viz{padding:15px 12px;border-radius:13px}
+ .visual-row{grid-template-columns:60px minmax(0,1fr);gap:8px}
+ .visual-year{font-size:11px}
+ .visual-value{gap:5px}
+ .visual-value strong{font-size:11px;width:70px}
+ .stack-track{height:20px}
+ .return-year{font-size:12px}
+ .returns-group{grid-template-columns:40px minmax(0,1fr);gap:5px}
+ .return-line{grid-template-columns:62px minmax(0,1fr) 47px;gap:5px}
+ .return-label{font-size:10px}
+ .return-line strong{font-size:10px}
+ .return-axis{margin:9px 47px 0 109px;font-size:9px}
+ .fee-row{grid-template-columns:87px minmax(0,1fr) 64px;gap:7px;font-size:10px}
+ .fee-track{height:20px}
+ .fee-row strong{font-size:10px}
+}
