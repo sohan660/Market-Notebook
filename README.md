@@ -1,47 +1,48 @@
-# Your First Share
+# Market Notebook
 
-**A beginner's guide to stocks and ETFs, created as a student project by Sohan Shrestha.**
+**Stocks, ETFs, and market data explained by a college student.**
 
-Live site: https://sohan660.github.io/beginnerinvestmentguide/
+A free, independently written investing guide by Sohan Shrestha, a first-year student at Franklin & Marshall College.
 
-I started this project while exploring finance and wealth management at Franklin & Marshall College. The goal is to give other students a place to learn basic investing terms and read financial data without feeling pushed into a particular stock.
+**Website:** https://sohan660.github.io/beginnerinvestmentguide/
 
-## What's on the site
+## What you can learn
 
-- **Home (index.html)** — where to start, with a clearly labeled, hypothetical $25/week illustration.
-- **Investing 101 (start.html)** — stocks, ETFs, account basics, risk, an ETF research checklist, interactive calculator, and a three-question quiz.
-- **Charts & Data (charts.html)** — a hypothetical contribution model, actual 2019–2025 annual Berkshire Hathaway/S&P 500 returns, and the SEC's educational example of how fees affect long-term results.
-- **Investor Research (investors.html)** — Warren Buffett, Bill Ackman, George Soros, John Bogle, plus a chart of disclosed 13F portfolio concentration. Data are dated and attributed.
-- **About (about.html)** — education, LaGuardia Business Services research, IRS VITA/TCE certification, and a link to LinkedIn.
+This is an educational project for students who want to understand investing without being told what to buy.
 
-## How to keep the facts straight
+- **Home — `index.html`:** introduction and an interactive chart of S&P 500 annual total returns from 2000–2025.
+- **Investing 101 — `start.html`:** stocks, ETFs, risk, fund fees, account basics, historical charts, two hypothetical calculators, and a five-question quiz.
+- **Investor research — `investors.html`:** Berkshire Hathaway/Warren Buffett, Pershing Square/Bill Ackman, Soros Fund Management, and John Bogle. Includes historical returns and dated Form 13F holdings visualizations.
+- **About Sohan — `about.html`:** education, research experience, interests, and a LinkedIn contact link.
 
-There is no stock-price API. This site is not a live market-data service.
+Charts and quiz logic live in `script.js`; visual styling lives in `styles.css`. The current logo and browser favicon are `logo.svg` and `favicon.svg`.
 
-The numbers fall into two categories:
+## Important notes about the numbers
 
-1. **Historical:** Berkshire's published 2025 annual report; GuruFocus snapshots of 2026 quarterly Form 13F filings. A 13F position value isn't a manager's profit, total holdings, or a recommendation. Filing dates and portfolio dates can differ.
-2. **Hypothetical:** $25/week examples and the $100k-to-$1m calculator, which assume fixed returns rather than predicting markets. The SEC fee illustration is also hypothetical and is directly labeled as such.
+- The market return charts use **historical calendar-year data through 2025**, not live prices.
+- The $10,000 S&P 500 illustration applies those historical annual index returns to a hypothetical starting balance. It assumes dividend reinvestment and excludes fees and taxes.
+- The long-term growth and fee calculators assume fixed returns. **They are examples, not forecasts or promises.**
+- Form 13F data covers certain reportable securities positions at a quarter end, with disclosure delays; **portfolio value does not mean personal wealth, profit, or total firm assets.** The current holdings examples are snapshots from June 30, 2026, not live positions.
 
-Primary references:
+### Sources to consult
 
-- [Berkshire Hathaway 2025 Annual Report, pp. 19–20](https://berkshirehathaway.com/2025ar/2025ar.pdf)
-- [SEC Investor.gov: Understanding Fees](https://www.investor.gov/introduction-investing/getting-started/understanding-fees)
+- [S&P Dow Jones Indices: annual returns and market commentary](https://www.spglobal.com/spdji/en/commentary/article/us-equities-market-attributes)
+- [Berkshire Hathaway's 2025 annual report](https://berkshirehathaway.com/2025ar/2025ar.pdf)
+- [SEC: Form 13F FAQ](https://www.sec.gov/rules-regulations/staff-guidance/frequently-asked-questions-about-form-13f)
 - [SEC Investor.gov: ETFs](https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2)
-- [SEC: FAQ about Form 13F](https://www.sec.gov/rules-regulations/staff-guidance/frequently-asked-questions-about-form-13f)
-- [GuruFocus investor profiles](https://www.gurufocus.com/guru/list)
-- [Vanguard: the history of index investing](https://corporate.vanguard.com/content/corporatesite/us/en/corp/articles/50-years-50-facts-indexing-since-1976.html)
+- [Investment Company Institute: 2025 fund fees](https://www.ici.org/news-release/mutual-fund-and-etf-fees-remained-near-historic-lows-in-2025)
+- [GuruFocus investor directory](https://www.gurufocus.com/guru/list)
 
-Before adding new figures, verify the source and put the **date, metric and assumptions next to the chart**.
+## Editing
 
-## Editing and publishing
+This is a static site built with HTML, CSS and plain JavaScript. It requires no server, sign-in, build system, API token, or stock market API.
 
-All pages are plain HTML/CSS/JavaScript. There is no build step, database, account signup, tracker, or API key. You can make changes with GitHub's file editor.
+On GitHub, edit the desired file on the `main` branch and commit the change. GitHub Pages deploys the repository root. You can inspect deployment status in **Actions**.
 
-styles.css controls the design. script.js controls the two calculators and quiz. logo.svg and favicon.svg are the rising-candlestick icon.
+The repository name stays `beginnerinvestmentguide` so existing website links remain valid even though the **website brand** is now **Market Notebook**.
 
-GitHub Pages deploys from main / (root) under **Settings → Pages**.
+## About this project
 
-Before sharing widely, review the first-person biography and the financial descriptions yourself, and confirm the live site opens correctly on your phone.
+Created for learning, not for personalized financial or tax advice. Public-data examples may become outdated, and investing involves possible losses. This project is not affiliated with or endorsed by the investors, firms, or data publishers mentioned.
 
-_Independent student education project. Not personalized investing, legal, or tax advice. Not endorsed by GuruFocus or any featured investor._
+© 2026 Sohan Shrestha.
