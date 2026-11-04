@@ -23,6 +23,7 @@
     const mn = Math.min(0, Math.floor(Math.min(...all) / 10) * 10), mx = Math.ceil(Math.max(...all) / 10) * 10;
     const y = v => T + (mx - v) / (mx - mn) * (H - T - B), step = (W - L) / n, gw = step * 0.78, bw = gw / o.series.length;
     const s = svg(W, H, o.aria), ro = $('.readout', box);
+    s.setAttribute('role', 'group');
     for (let v = mn; v <= mx; v += 10) { el(s, 'line', { x1: L, x2: W, y1: y(v), y2: y(v), stroke: v ? '#eee7d6' : '#1f2430' }); el(s, 'text', { x: L - 5, y: y(v) + 4, 'text-anchor': 'end' }, v + '%'); }
     o.labels.forEach((lb, i) => {
       if (n < 14 || i % 5 === 0) el(s, 'text', { x: L + step * i + step / 2, y: H - 6, 'text-anchor': 'middle' }, lb);
@@ -30,7 +31,15 @@
         const v = se.vals[i];
         const r = el(s, 'rect', { x: L + step * i + (step - gw) / 2 + bw * j, y: Math.min(y(0), y(v)), width: bw - 1, height: Math.abs(y(v) - y(0)) || 1, fill: o.sign ? (v < 0 ? '#d9480f' : '#2457c5') : se.color });
         const say = () => { if (ro) ro.textContent = lb + (o.series.length > 1 ? ' \u00b7 ' + se.name : '') + ': ' + pct(v); };
-        r.addEventListener('mouseenter', say); r.addEventListener('click', say);
+        r.setAttribute('tabindex', '0');
+        r.setAttribute('role', 'button');
+        r.setAttribute('aria-label', lb + (o.series.length > 1 ? ', ' + se.name : '') + ': ' + pct(v));
+        r.addEventListener('mouseenter', say);
+        r.addEventListener('focus', say);
+        r.addEventListener('click', say);
+        r.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); say(); }
+        });
       });
     });
     const pl = $('.plot', box); pl.innerHTML = ''; pl.appendChild(s);
