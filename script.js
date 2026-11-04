@@ -1,4 +1,4 @@
-/* Your First Share: charts, calculators, quiz.
+/* Market Notebook: charts, calculators, quiz.
    To update the data, edit the numbers below. Everything is plain JS, no libraries. */
 (function () {
   'use strict';
