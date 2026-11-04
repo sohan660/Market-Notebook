@@ -4,7 +4,7 @@
 
 A free, independently written investing guide by Sohan Shrestha, a first-year student at Franklin & Marshall College.
 
-**Website:** https://sohan660.github.io/beginnerinvestmentguide/
+**Website:** https://sohan660.github.io/Market-Notebook/
 
 ## What you can learn
 
