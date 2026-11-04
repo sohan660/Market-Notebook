@@ -1,17 +1,129 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Market Notebook | Stocks & ETFs for College Students</title><meta name="description" content="A college student’s guide to stocks, ETFs, investment fees, and real market data. Learn the basics with clear charts and sources."><meta property="og:type" content="website"><meta property="og:title" content="Market Notebook | A Student’s Guide to Investing"><meta property="og:description" content="Stocks, ETFs, market charts, and research on well-known investors, explained by a college student."><meta property="og:url" content="https://sohan660.github.io/Market-Notebook/"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://sohan660.github.io/Market-Notebook/"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><script defer src="script.js"></script></head><body>
-<header class="top"><nav class="nav"><a class="logo" href="index.html">Market Notebook</a><a href="start.html">Investing 101</a><a href="investors.html">Investor Playbook</a><a href="about.html">About me</a><a href="https://www.linkedin.com/in/sohvn/" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav></header>
-<main class="wrap">
-<noscript><div class="note"><b>JavaScript is disabled.</b> Interactive charts, calculators, and the quiz need JavaScript enabled. The written lessons and source links still work.</div></noscript>
-<p class="kicker">A student-made guide to investing</p>
-<h1>Investing for college students who have no idea where to start</h1>
-<p class="lead">I'm a first-year student who got curious about investing and wrote down what I found: how stocks and ETFs work, what fees do to your money, and what Warren Buffett and Bill Ackman actually own. For historical data, I link the sources; for made-up scenarios, I label the assumptions.</p>
-<div class="btns"><a class="btn" href="start.html">Start with the basics</a><a class="btn alt" href="investors.html">See what the gurus own</a></div>
-<figure class="chart" data-chart="sp"><h3>S&amp;P 500 yearly returns, 2000–2025</h3><div class="legend"></div><div class="plot"></div><div class="readout" role="status" aria-live="polite">Hover or tap a bar.</div><details><summary>Show the numbers as a table</summary><div class="tbl"></div></details><figcaption>Annual total returns, including reinvested dividends. Source: historical figures listed by <a href="https://smartasset.com/investing/sp-500-average-annual-return" target="_blank" rel="noopener noreferrer">SmartAsset</a>; 2023–2025 also checked against <a href="https://www.spglobal.com/spdji/en/commentary/article/us-equities-market-attributes" target="_blank" rel="noopener noreferrer">S&amp;P Dow Jones Indices</a>.</figcaption></figure>
-<p>Twenty of those 26 years were up. The worst was 2008 at &minus;37%, and 2000 to 2002 was three down years in a row. I'd rather you see the orange bars before you put money in than after.</p>
-<p>Compare that with the usual calculator math: $25 a week for 20 years at a steady 6% turns into about <mark>$50,000</mark>, and roughly $26,000 of that is your own money. Real markets never do "steady," which is why the chart looks like that.</p>
-<h2>Where to start</h2>
-<ol><li><a href="start.html#stocks">What a stock is</a> (coffee shop version)</li><li><a href="start.html#difference">Stocks vs. ETFs</a></li><li><a href="start.html#fees">What fees do to your money</a>, with a calculator</li><li><a href="investors.html">What Buffett, Ackman and Soros own</a>, straight from their SEC filings</li></ol>
-<h2>Why I made this</h2>
-<p>Most finance content online either assumes you already know what a P/E ratio is or wants to sell you a course. I wanted something I could send a friend. I'm a first-year at Franklin &amp; Marshall College looking at business and economics, so I'm still learning this too, and I'll say so when I'm not sure. <a href="about.html">More about me</a>.</p>
-<div class="note"><b>Heads up:</b> this is a student project, not financial advice. Investing can lose money.</div>
-</main><footer><div class="wrap">&copy; 2026 Sohan Shrestha.</div></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#faf7f0">
+  <title>Market Notebook | Learn Investing Without the Hype</title>
+  <meta name="description" content="A free investing guide made by a college student. Learn stocks, ETFs, fees and market history with real charts, interactive calculators and investor research.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Market Notebook | Investing for College Students">
+  <meta property="og:description" content="Stocks, ETFs, market history and lessons from well-known investors. No hype—just the basics and the numbers behind them.">
+  <meta property="og:url" content="https://sohan660.github.io/Market-Notebook/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://sohan660.github.io/Market-Notebook/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="home-page">
+<header class="top">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="logo" href="index.html">Market Notebook</a>
+    <a class="on" href="index.html" aria-current="page">Home</a>
+    <a href="start.html">Investing 101</a>
+    <a href="investors.html">Investor Playbook</a>
+    <a href="about.html">About me</a>
+    <a href="https://www.linkedin.com/in/sohvn/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </nav>
+</header>
+<main>
+  <noscript><div class="wrap"><div class="note"><b>JavaScript is disabled.</b> The market chart below needs JavaScript, but the lessons, linked sources and research are still available.</div></div></noscript>
+
+  <section class="home-hero home-container" aria-labelledby="home-title">
+    <div class="home-hero-copy">
+      <p class="home-kicker"><span class="home-kicker-dot" aria-hidden="true"></span> THE STOCK MARKET, EXPLAINED FOR STUDENTS</p>
+      <h1 id="home-title">Learn what you're buying. <em>Then decide for yourself.</em></h1>
+      <p class="home-lead">New to stocks and ETFs? I made Market Notebook to explain what I was learning about investing, with real market data and sources you can check along the way.</p>
+      <div class="home-actions">
+        <a class="home-button home-button-primary" href="start.html">Start learning <span aria-hidden="true">↗</span></a>
+        <a class="home-button home-button-secondary" href="investors.html">See the investor research <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="home-byline">Made by Sohan Shrestha · Franklin &amp; Marshall College</p>
+    </div>
+    <div class="home-hero-art">
+      <figure class="home-visual">
+        <img src="homepage-graphic.svg" width="720" height="570" alt="An illustrated chart showing real S&amp;P 500 annual returns for 2019 through 2025. Most years are green, but 2022 is orange at negative 18.1 percent." fetchpriority="high">
+        <figcaption>Historical S&amp;P 500 annual returns, including dividends. See the full interactive chart below.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="home-intro-band" aria-label="About the guide">
+    <div class="home-container home-band-inner">
+      <span>Free to read</span><span>Beginner-friendly lessons</span><span>Historical data with sources</span><span>No stock tips or promises</span>
+    </div>
+  </section>
+
+  <section class="home-container home-learn" aria-labelledby="home-learn-title">
+    <div class="home-section-heading">
+      <div><span class="home-overline">YOUR STARTING POINT</span><h2 id="home-learn-title">Pick a place to start.</h2></div>
+      <p>You don't need to know any ticker symbols before you start.</p>
+    </div>
+    <div class="home-lessons">
+      <a class="home-lesson" href="start.html#stocks">
+        <span class="home-lesson-number">01 / THE BASICS</span>
+        <span class="home-lesson-symbol" aria-hidden="true">S&amp;P</span>
+        <h3>What exactly is a stock?</h3>
+        <p>Owning part of a company, in plain English. Plus why a familiar name isn't automatically a smart buy.</p>
+        <span class="home-linkline">Learn about stocks <span aria-hidden="true">↗</span></span>
+      </a>
+      <a class="home-lesson" href="start.html#difference">
+        <span class="home-lesson-number">02 / THE DIFFERENCE</span>
+        <span class="home-lesson-symbol home-lesson-symbol-amber" aria-hidden="true">ETF</span>
+        <h3>One stock or a whole basket?</h3>
+        <p>Find out how ETFs work, why people use them and what risks they still carry.</p>
+        <span class="home-linkline">Compare stocks and ETFs <span aria-hidden="true">↗</span></span>
+      </a>
+      <a class="home-lesson" href="investors.html">
+        <span class="home-lesson-number">03 / THE RESEARCH</span>
+        <span class="home-lesson-symbol home-lesson-symbol-terracotta" aria-hidden="true">13F</span>
+        <h3>What do famous investors own?</h3>
+        <p>Look at public filings behind Buffett, Ackman and Soros—without mistaking holdings for guaranteed returns.</p>
+        <span class="home-linkline">Open Investor Playbook <span aria-hidden="true">↗</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="home-market-wrap" id="market-history" aria-labelledby="home-market-title">
+    <div class="home-container">
+      <div class="home-market-top">
+        <div><span class="home-overline">THE NUMBERS, NOT THE HYPE</span><h2 id="home-market-title">The market doesn't go up every year.</h2></div>
+        <p>The S&amp;P 500 had six negative years from 2000 through 2025. Here's what those ups and downs actually looked like.</p>
+      </div>
+      <figure class="chart home-chart" data-chart="sp">
+        <h3>S&amp;P 500 annual total returns · 2000–2025</h3>
+        <div class="legend"></div>
+        <div class="plot"></div>
+        <div class="readout" role="status" aria-live="polite">Hover, tap or focus on a bar for its exact return.</div>
+        <details><summary>See the full data table</summary><div class="tbl"></div></details>
+        <figcaption>Historical total return including reinvested dividends, not a forecast. Source: annual data listed by <a href="https://smartasset.com/investing/sp-500-average-annual-return" target="_blank" rel="noopener noreferrer">SmartAsset</a>; recent figures cross-checked against <a href="https://www.spglobal.com/spdji/en/commentary/article/us-equities-market-attributes" target="_blank" rel="noopener noreferrer">S&amp;P Dow Jones Indices</a>.</figcaption>
+      </figure>
+      <div class="home-market-foot">
+        <p><strong>What I noticed:</strong> 2000–2002 were three down years in a row, and 2008 was down 37%. It's worth looking at the bad years before putting your savings at risk.</p>
+        <a href="start.html#market" class="home-inline-link">See what $10,000 would have done <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-container home-bottom" aria-label="Explore investing further">
+    <div class="home-math-card">
+      <span class="home-overline">TRY THE MATH</span>
+      <h2>Can $25 a week make a difference?</h2>
+      <p class="home-number">$50,054<span> after 20 years*</span></p>
+      <p>That's what a hypothetical $25 per week adds up to at a fixed 6% annual return, with monthly contributions and compounding. You would have deposited $26,000 of your own money.</p>
+      <p class="home-footnote">*Illustration only. Actual returns vary and losses are possible. Before fees, taxes and inflation.</p>
+      <a href="start.html#compounding" class="home-inline-link">Try your own numbers <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="home-author-card">
+      <span class="home-overline">ABOUT THIS PROJECT</span>
+      <h2>I'm learning too.</h2>
+      <p>I'm Sohan, a first-year student at Franklin &amp; Marshall College interested in finance and wealth management. I built this site because I wanted a place to send a friend who asked how investing works.</p>
+      <p>It's a study guide, not a list of stocks you should buy.</p>
+      <a href="about.html" class="home-inline-link">A little more about me <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">&copy; 2026 Sohan Shrestha.</div></footer>
+</body>
+</html>
