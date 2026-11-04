@@ -41,3 +41,34 @@ input,select{width:100%;font:inherit;padding:7px;border:1px solid #bdb5a0;border
 dt{font-weight:700;margin-top:10px}dd{margin:0 0 0 0}
 footer{border-top:2px solid var(--ink);margin-top:64px;padding:20px 0 44px;font-size:14px;color:var(--mut)}
 @media(max-width:600px){figure.chart{margin-inline:-8px}.hb{grid-template-columns:105px 1fr 56px}}
+
+/* Launch polish: keep the student-made layout and make it easier to use on a phone. */
+.kicker{font:700 12px/1.4 system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin:23px 0 0}
+.nav a{min-height:38px;display:inline-flex;align-items:center}
+.nav a.logo{align-items:center}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:3px}
+.plot{-webkit-overflow-scrolling:touch;max-width:100%}
+figure.chart{max-width:calc(100% + 20px)}
+.hb{min-width:0}.hb span{overflow-wrap:anywhere}
+.readout{overflow-wrap:anywhere}
+.calc .grid>div{min-width:0}
+@media(max-width:600px){
+ body{font-size:16px;line-height:1.6}
+ .nav{gap:4px 16px;padding:10px 18px}
+ .nav a{font-size:14px;min-height:42px}
+ .nav a.logo{width:100%;font-size:22px;min-height:34px;margin-bottom:3px}
+ h1{font-size:clamp(30px,9vw,42px)}
+ h2{font-size:25px}
+ .lead{font-size:18px}
+ .btn{min-height:44px;padding:10px 15px}
+ figure.chart{padding:13px 10px;margin-inline:-8px}
+ table{display:block;width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ th,td{white-space:normal;min-width:115px}
+ input,select{font-size:16px;min-height:44px}
+ .q label{display:flex;align-items:center;min-height:43px;gap:7px}
+ .q input{flex-shrink:0}
+ .hb{grid-template-columns:95px minmax(0,1fr) 55px;gap:5px;font-size:12px}
+ .out{gap:13px 20px}
+ .out b{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
