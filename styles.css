@@ -193,3 +193,72 @@ figure.chart{max-width:calc(100% + 20px)}
  .home-lesson-symbol{width:44px;height:44px;font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.home-lesson,.home-button{transition:none}}
+
+
+/* Tactile button interactions — subtle press depth and a short tap ripple. */
+.btn,
+.home-button,
+.home-lesson {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  will-change: transform;
+  transition: transform 180ms cubic-bezier(.2,.8,.25,1),
+              box-shadow 180ms ease,
+              background-color 180ms ease,
+              border-color 180ms ease,
+              color 180ms ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(31,36,48,.13);
+}
+.btn:active,
+.btn.is-pressed,
+.home-button:active,
+.home-button.is-pressed {
+  transform: translateY(2px) scale(.975);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,.12);
+}
+.home-lesson:active,
+.home-lesson.is-pressed {
+  transform: translateY(1px) scale(.988);
+  box-shadow: 0 2px 8px rgba(30,40,25,.05);
+}
+.btn::after,
+.home-button::after,
+.home-lesson::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  left: var(--tap-x, 50%);
+  top: var(--tap-y, 50%);
+  width: 190%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255,255,255,.24);
+  transform: translate(-50%,-50%) scale(0);
+  opacity: 0;
+}
+.btn.alt::after,
+.home-button-secondary::after,
+.home-lesson::after {
+  background: rgba(44,105,73,.12);
+}
+.btn.tap-pop::after,
+.home-button.tap-pop::after,
+.home-lesson.tap-pop::after {
+  animation: notebook-tap-ripple 470ms cubic-bezier(.18,.7,.3,1) both;
+}
+@keyframes notebook-tap-ripple {
+  0% { transform: translate(-50%,-50%) scale(0); opacity: .95; }
+  85% { opacity: .2; }
+  100% { transform: translate(-50%,-50%) scale(1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .home-button, .home-lesson { transition: none; will-change: auto; }
+  .btn.tap-pop::after, .home-button.tap-pop::after, .home-lesson.tap-pop::after { animation: none; }
+}
