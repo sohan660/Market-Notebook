@@ -125,4 +125,34 @@
       $('#score').textContent = a ? s + ' of ' + Q.length + ' right' : 'Pick an answer first.';
     });
   }
+
+  /* Button feedback for mouse, touch, and keyboard; navigation is never delayed. */
+  const tapSelector = '.btn, .home-button, .home-lesson';
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.addEventListener('pointerdown', e => {
+    const el = e.target.closest(tapSelector);
+    if (!el || el.matches(':disabled, [aria-disabled="true"]')) return;
+    const box = el.getBoundingClientRect();
+    el.style.setProperty('--tap-x', ((e.clientX - box.left) / box.width * 100) + '%');
+    el.style.setProperty('--tap-y', ((e.clientY - box.top) / box.height * 100) + '%');
+    el.classList.add('is-pressed');
+  });
+  const releaseTap = () => document.querySelectorAll('.is-pressed').forEach(el => el.classList.remove('is-pressed'));
+  document.addEventListener('pointerup', releaseTap);
+  document.addEventListener('pointercancel', releaseTap);
+  window.addEventListener('blur', releaseTap);
+  document.addEventListener('click', e => {
+    const el = e.target.closest(tapSelector);
+    if (!el || el.matches(':disabled, [aria-disabled="true"]') || (reducedMotion && reducedMotion.matches)) return;
+    if (e.detail === 0) {
+      el.style.setProperty('--tap-x', '50%');
+      el.style.setProperty('--tap-y', '50%');
+    }
+    el.classList.remove('tap-pop');
+    void el.offsetWidth; // restart the ripple on repeated presses
+    el.classList.add('tap-pop');
+  });
+  document.addEventListener('animationend', e => {
+    if (e.animationName === 'notebook-tap-ripple') e.target.classList.remove('tap-pop');
+  });
 })();
