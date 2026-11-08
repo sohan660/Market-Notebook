@@ -9,7 +9,7 @@
 
   /* S&P 500 total return (dividends reinvested), calendar years. Source: SmartAsset's table; 2023-2025 cross-checked. */
   const SP = {2000:-9.10,2001:-11.89,2002:-22.10,2003:28.68,2004:10.88,2005:4.91,2006:15.79,2007:5.49,2008:-37.00,2009:26.46,2010:15.06,2011:2.11,2012:16.00,2013:32.39,2014:13.69,2015:1.38,2016:11.96,2017:21.83,2018:-4.38,2019:31.49,2020:18.40,2021:28.71,2022:-18.11,2023:26.29,2024:25.02,2025:17.88};
-  /* Berkshire vs S&P 500, per Berkshire's reported figures as published by The Motley Fool (rounded to 0.1). */
+  /* Berkshire vs S&P 500, Berkshire 2025 annual report, pp. 19–20; verified 2026-11-08 (rounded to 0.1). */
   const BRK = {2015:-12.5,2016:23.4,2017:21.9,2018:2.8,2019:11.0,2020:2.4,2021:29.6,2022:4.0,2023:15.8,2024:25.5,2025:10.9};
   const SPB = {2015:1.4,2016:12.0,2017:21.8,2018:-4.4,2019:31.5,2020:18.4,2021:28.7,2022:-18.1,2023:26.3,2024:25.0,2025:17.9};
 
@@ -90,15 +90,21 @@
     $('.plot', box).innerHTML = items.map(i => '<div class="hb"><span>' + i.l + '</span><div class="tr"><i style="width:' + Math.max(1, i.v / max * 100) + '%;background:' + (i.c || '#2457c5') + '"></i></div><b>' + fmt(i.v) + '</b></div>').join('');
   }
 
+  function holdings(box,key) {
+    const manager=window.MARKET_HOLDINGS.managers[key];
+    const rows=manager.top.concat([{l:'All other reported holdings',v:manager.total-manager.top.reduce((sum,row)=>sum+row.v,0),c:'#bdb5a0'}]);
+    hbars(box,rows.map(row=>({...row,v:row.v/manager.total*100})),100,v=>v.toFixed(1)+'%');
+  }
   const yrs = Object.keys(SP);
   const CH = {
     sp: b => bars(b, { labels: yrs, sign: 1, series: [{ name: 'S&P 500', vals: yrs.map(k => SP[k]) }], aria: 'Bar chart of S&P 500 total return for each year from 2000 to 2025' }),
     ten: b => { let v = 1e4; const x = ['1999'], a = [v]; yrs.forEach(k => { v *= 1 + SP[k] / 100; x.push(k); a.push(v); }); const t = $('#tenEnd'); if (t) t.textContent = usd(v); lines(b, { x, every: 5, series: [{ name: '$10,000 in the S&P 500', vals: a, color: '#2457c5' }], aria: 'Line chart of $10,000 invested in the S&P 500 at the end of 1999' }); },
     brk: b => { const k = Object.keys(BRK); bars(b, { labels: k, series: [{ name: 'Berkshire Hathaway', vals: k.map(y => BRK[y]), color: '#2457c5' }, { name: 'S&P 500', vals: k.map(y => SPB[y]), color: '#f2a900' }], aria: 'Grouped bar chart comparing Berkshire Hathaway and the S&P 500 each year from 2015 to 2025' }); },
     brkLong: b => hbars(b, [{ l: 'Berkshire stock', v: 19.7 }, { l: 'S&P 500', v: 10.5, c: '#f2a900' }], 20, v => v + '%'),
-    brkHold: b => { const t = 299.25, top = [['Apple', 65.95], ['American Express', 51.28], ['Alphabet (both classes)', 37.76], ['Coca-Cola', 32.51]], o = t - top.reduce((s, x) => s + x[1], 0); hbars(b, top.map(x => ({ l: x[0], v: x[1] / t * 100 })).concat([{ l: 'Everything else', v: o / t * 100, c: '#bdb5a0' }]), 40, v => v.toFixed(1) + '%'); },
-    pshHold: b => hbars(b, [{ l: 'Uber', v: 12.72 }, { l: 'Brookfield', v: 12.58 }, { l: 'Microsoft', v: 11.89 }, { l: 'Other 11 positions', v: 62.81, c: '#bdb5a0' }], 65, v => v.toFixed(1) + '%'),
-    size: b => hbars(b, [{ l: 'Berkshire', v: 299.25 }, { l: 'Pershing Square', v: 19.5, c: '#f2a900' }, { l: 'Soros Fund Mgmt', v: 7.6, c: '#d9480f' }], 299.25, v => '$' + v.toFixed(1) + 'B')
+    brkHold: b => holdings(b, 'berkshire'),
+    pshHold: b => holdings(b, 'pershing'),
+    size: b => { const managers=Object.values(window.MARKET_HOLDINGS.managers); hbars(b,managers.map((m,i)=>({l:m.name,v:m.total,c:['#2457c5','#f2a900','#d9480f'][i]})),Math.max(...managers.map(m=>m.total)),v=>'$'+(v/1e9).toFixed(2)+'B'); }
+
   };
   document.querySelectorAll('[data-chart]').forEach(b => { try { CH[b.dataset.chart](b); } catch (e) { console.error(e); } });
 

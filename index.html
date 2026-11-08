@@ -15,18 +15,10 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
+<link rel="stylesheet" href="site.css">
 </head>
 <body class="home-page"><a class="skip-link" href="#main-content">Skip to content</a>
-<header class="top">
-  <nav class="nav" aria-label="Main navigation">
-    <a class="logo" href="index.html">Market Notebook</a>
-    <a class="on" href="index.html" aria-current="page">Home</a>
-    <a href="start.html">Investing 101</a>
-    <a href="investors.html">Investor Playbook</a><a href="research.html">Research Lab</a>
-    <a href="about.html">About me</a>
-    <a href="https://www.linkedin.com/in/sohvn/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-  </nav>
-</header>
+<header class="site-header"><nav class="site-nav" aria-label="Main navigation"><a class="site-brand" href="index.html">Market Notebook<span>Learn investing, thoughtfully.</span></a><div class="site-links"><a href="index.html" aria-current="page">Home</a><a href="start.html">Investing 101</a><a href="investors.html">Investor Playbook</a><a href="research.html">Research Lab</a><a href="about.html">About me</a><a href="https://www.linkedin.com/in/sohvn/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div></nav></header>
 <main id="main-content" tabindex="-1">
   <noscript><div class="wrap"><div class="note"><b>JavaScript is disabled.</b> The market chart below needs JavaScript, but the lessons, linked sources and research are still available.</div></div></noscript>
 
@@ -110,7 +102,7 @@
       <figure class="chart home-chart" data-chart="sp">
         <h3>S&amp;P 500 annual total returns · 2000–2025</h3>
         <div class="legend"></div>
-        <div class="plot"></div>
+        <p class="chart-scroll-hint">On a small screen, swipe across the chart to see more.</p><div class="plot" tabindex="0" role="region" aria-label="Scrollable chart"></div>
         <div class="readout" role="status" aria-live="polite">Hover, tap or focus on a bar for its exact return.</div>
         <details><summary>See the full data table</summary><div class="tbl"></div></details>
         <figcaption>Historical total return including reinvested dividends, not a forecast. Source: annual data listed by <a href="https://smartasset.com/investing/sp-500-average-annual-return" target="_blank" rel="noopener noreferrer">SmartAsset</a>; recent figures cross-checked against <a href="https://www.spglobal.com/spdji/en/commentary/article/us-equities-market-attributes" target="_blank" rel="noopener noreferrer">S&amp;P Dow Jones Indices</a>.</figcaption>
@@ -140,6 +132,6 @@
     </div>
   </section>
 </main>
-<footer><div class="wrap">&copy; 2026 Sohan Shrestha.</div></footer>
+<footer class="site-footer"><div><a class="footer-brand" href="index.html">Market Notebook</a><p>Independent investing education by Sohan Shrestha.<br>Historical results and calculators are not promises of future returns.</p><span>© 2026 Sohan Shrestha</span></div><a href="#main-content">Back to top ↑</a></footer>
 </body>
 </html>

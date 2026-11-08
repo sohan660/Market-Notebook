@@ -53,3 +53,9 @@ Created for learning, not for personalized financial or tax advice. Public-data 
 research-data.js stores reported GAAP annual revenue and net income in USD millions and diluted EPS in USD/share. Every year has a period-end date and source index. Snapshot checked November 8, 2026: Apple and Microsoft FY2024–2026; Coca-Cola FY2023–2025. Apple figures come from unaudited earnings statements; Microsoft and Coca-Cola from annual reports. Updates are manual; no live quotes or quarterly refresh is configured.
 
 To update, verify the original report, add the annual values and exact period end with a source link, update the checked date and visible snapshot text, and test the chart and comparison years. Preserve past years used by comparisons. Net margin and revenue growth are calculated from the stored values. P/E has been replaced by reported diluted EPS because no dated stock-price feed is connected.
+
+## Maintenance and validation
+
+See [the data review procedure](docs/DATA-UPDATES.md) for source checks, refresh steps and the November 2026 audit. Run node scripts/validate-site.mjs before publishing. Research Lab and Investor Playbook show review dates and turn the notice amber when a review is overdue. These reminders do not automatically refresh financial figures.
+
+Shared navigation, footer, typography and responsive refinements live in site.css. Investing 101 and Investor Playbook include section navigation. Browser rendering still requires the manual viewport checks listed in the procedure.

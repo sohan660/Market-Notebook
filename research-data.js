@@ -1,4 +1,4 @@
-/* Reported GAAP annual figures. Revenue and net income: USD millions. EPS: USD/share. Manually maintained snapshot. */
+/* Reported GAAP annual figures. Revenue and net income: USD millions. EPS: USD/share. Manual review required. */
 window.MARKET_FINANCIALS = {
   "checkedOn": "2026-11-08",
   "companies": {
@@ -120,5 +120,6 @@ window.MARKET_FINANCIALS = {
         }
       ]
     }
-  }
+  },
+  "reviewDue": "2026-12-08"
 };
