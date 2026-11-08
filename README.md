@@ -14,9 +14,12 @@ This is an educational project for students who want to understand investing wit
 - **Investing 101 — `start.html`:** stocks, ETFs, risk, fund fees, account basics, historical charts, two hypothetical calculators, and a five-question quiz.
 - **Investor research — `investors.html`:** Berkshire Hathaway/Warren Buffett, Pershing Square/Bill Ackman, Soros Fund Management, and John Bogle. Includes historical returns and dated Form 13F holdings visualizations.
 - **Research Lab — `research.html`:** reported company annual financials with source links, fiscal dates, comparison charts and a research checklist; not live quotes.
+- **Watchlist — `watchlist.html`:** locally saved tickers, short notes, external quote links and CSV export. No live prices are fetched.
+- **Investing 101 learning path:** five checkable lessons with progress saved locally in the browser.
+- **Research Lab notes:** company-specific investment thesis and risk notes with Markdown export.
 - **About Sohan — `about.html`:** education, research experience, interests, and a LinkedIn contact link.
 
-Charts and quiz logic live in `script.js`; visual styling lives in `styles.css`. The current logo and browser favicon are `logo.svg` and `favicon.svg`.
+Charts and quiz logic live in `script.js`; visual styling lives in `styles.css`, `site.css`, `research.css` and `features.css`. The current logo and browser favicon are `logo.svg` and `favicon.svg`.
 
 ## Important notes about the numbers
 
@@ -50,7 +53,7 @@ Created for learning, not for personalized financial or tax advice. Public-data 
 
 ## Research Lab data
 
-research-data.js stores reported GAAP annual revenue and net income in USD millions and diluted EPS in USD/share. Every year has a period-end date and source index. Snapshot checked November 8, 2026: Apple and Microsoft FY2024–2026; Coca-Cola FY2023–2025. Apple figures come from unaudited earnings statements; Microsoft and Coca-Cola from annual reports. Updates are manual; no live quotes or quarterly refresh is configured.
+research-data.js stores reported GAAP annual revenue and net income in USD millions and diluted EPS in USD/share. Every year has a period-end date and source index. Snapshot checked November 8, 2026: Apple and Microsoft FY2024–2026; Coca-Cola FY2023–2025. Apple FY2024–FY2026 figures come from its audited FY2026 Form 10-K; Microsoft and Coca-Cola from annual reports. Updates are manual; no live quotes or quarterly refresh is configured.
 
 To update, verify the original report, add the annual values and exact period end with a source link, update the checked date and visible snapshot text, and test the chart and comparison years. Preserve past years used by comparisons. Net margin and revenue growth are calculated from the stored values. P/E has been replaced by reported diluted EPS because no dated stock-price feed is connected.
 
@@ -59,3 +62,9 @@ To update, verify the original report, add the annual values and exact period en
 See [the data review procedure](docs/DATA-UPDATES.md) for source checks, refresh steps and the November 2026 audit. Run node scripts/validate-site.mjs before publishing. Research Lab and Investor Playbook show review dates and turn the notice amber when a review is overdue. These reminders do not automatically refresh financial figures.
 
 Shared navigation, footer, typography and responsive refinements live in site.css. Investing 101 and Investor Playbook include section navigation. Browser rendering still requires the manual viewport checks listed in the procedure.
+
+## Browser-only tools and social sharing
+- The site includes a share preview image (`social-preview.png`, 1200 × 630), Open Graph / Twitter metadata and a six-page `sitemap.xml` for search discovery.
+- `learning-path.js` stores completed lessons in browser localStorage. `research-notes.js` saves notes separately for each company and exports Markdown. `watchlist.js` saves up to 25 tickers with a research reason and exports CSV.
+- The watchlist does not retrieve or simulate real-time quotes; its quote/chart links open Yahoo Finance in a separate tab. Confirm current prices and their timestamps on the external page.
+- Browser-only storage is not synchronized. Clearing site data can erase saved progress and notes; export files to keep copies.

@@ -9,8 +9,8 @@ window.MARKET_FINANCIALS = {
       "letter": "A",
       "sources": [
         {
-          "label": "Apple FY2026 statements (unaudited)",
-          "url": "https://www.apple.com/newsroom/pdfs/fy2026q4/FY26_Q4_Consolidated_Financial_Statements.pdf"
+          "label": "Apple FY2026 Form 10-K (audited)",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/aapl-20260926.htm"
         },
         {
           "label": "Apple FY2025 statements (unaudited)",
@@ -24,7 +24,7 @@ window.MARKET_FINANCIALS = {
           "revenue": 391035,
           "netIncome": 93736,
           "eps": 6.08,
-          "source": 1
+          "source": 0
         },
         {
           "year": 2025,

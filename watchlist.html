@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#faf7f0">
+<title>My Stock Watchlist | Market Notebook</title>
+<meta name="description" content="A private browser-only stock watchlist with ticker research notes, exportable CSV and links to external market quotes. No live prices are shown.">
+<link rel="canonical" href="https://sohan660.github.io/Market-Notebook/watchlist.html"><link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="site.css"><link rel="stylesheet" href="features.css">
+<script defer src="watchlist.js"></script>
+<meta property="og:type" content="website"><meta property="og:title" content="My Stock Watchlist | Market Notebook">
+<meta property="og:description" content="Keep a browser-only stock watchlist and open external market quote pages.">
+<meta property="og:url" content="https://sohan660.github.io/Market-Notebook/watchlist.html">
+<meta property="og:image" content="https://sohan660.github.io/Market-Notebook/social-preview.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://sohan660.github.io/Market-Notebook/social-preview.png">
+</head><body class="reading-page watchlist-page"><a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header"><nav class="site-nav" aria-label="Main navigation"><a class="site-brand" href="index.html">Market Notebook<span>Learn investing, thoughtfully.</span></a><div class="site-links"><a href="index.html">Home</a><a href="start.html">Investing 101</a><a href="investors.html">Investor Playbook</a><a href="research.html">Research Lab</a><a href="watchlist.html" aria-current="page">Watchlist</a><a href="about.html">About me</a><a href="https://www.linkedin.com/in/sohvn/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div></nav></header>
+<main class="wrap" id="main-content" tabindex="-1">
+<p class="eyebrow">YOUR RESEARCH DESK</p><h1>Keep track of the stocks you want to understand.</h1>
+<p class="lead">Bookmark tickers, write down why they interest you, and revisit the companies you're studying.</p>
+<p class="note"><b>Not a live trading screen.</b> No prices or daily changes are shown or automatically refreshed here. Quote links open an external site, where you can check its data timestamp. Watchlist entries are saved only in this browser and aren't synced to an account.</p>
+<section class="watchlist-add" aria-labelledby="watch-add-heading"><h2 id="watch-add-heading">Add a company or ETF</h2>
+<form id="watchlist-form"><div class="watchlist-form-grid">
+<label for="watch-symbol">Ticker symbol<input id="watch-symbol" type="text" maxlength="10" autocomplete="off" autocapitalize="characters" placeholder="e.g. AAPL" required></label>
+<label for="watch-note">Why I'm following it (optional)<input id="watch-note" type="text" maxlength="240" placeholder="e.g. Check revenue trends at next earnings"></label>
+</div><button type="submit" class="feature-btn primary">Add to watchlist</button></form>
+<p class="watchlist-suggestions">Quick add: <button data-add-symbol="AAPL" type="button">AAPL</button><button data-add-symbol="MSFT" type="button">MSFT</button><button data-add-symbol="KO" type="button">KO</button><button data-add-symbol="VOO" type="button">VOO</button><button data-add-symbol="SPY" type="button">SPY</button></p>
+<p id="watch-status" role="status" aria-live="polite">Enter a ticker to begin.</p></section>
+<section class="watchlist-results" aria-labelledby="watch-results-heading"><div class="watchlist-results-head"><div><p class="eyebrow">YOUR SAVED SYMBOLS</p><h2 id="watch-results-heading">My watchlist <span id="watch-count">(0)</span></h2></div><button type="button" id="watch-export" class="feature-btn">Export as CSV</button></div>
+<div id="watch-entries" class="watchlist-entries"><p class="watchlist-empty">Your list is empty. Add a ticker above.</p></div></section>
+<section class="watchlist-help"><h2>What should you research next?</h2><p>Start by understanding a company's products, financial statements, long-term earnings and risks. The <a href="research.html">Research Lab</a> lets you examine reported fundamentals for Apple, Microsoft and Coca-Cola. A stock's price alone is not a valuation.</p></section>
+</main><footer class="site-footer"><div><a class="footer-brand" href="index.html">Market Notebook</a><p>Independent investing education by Sohan Shrestha.<br>Historical results and calculators are not promises of future returns.</p><span>© 2026 Sohan Shrestha</span></div><a href="#main-content">Back to top ↑</a></footer></body></html>

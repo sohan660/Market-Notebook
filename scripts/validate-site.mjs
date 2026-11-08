@@ -31,7 +31,7 @@ for(const manager of Object.values(holdings.managers)){
     assert.ok(manager.top.reduce((a,row)=>a+row.v,0)<=manager.total,'Selected holdings exceed filing total');
   }
 }
-const pages=['index.html','start.html','investors.html','research.html','about.html'];
+const pages=['index.html','start.html','investors.html','research.html','watchlist.html','about.html'];
 let links=0;
 for(const file of pages){
   const html=await read(file);
@@ -40,6 +40,8 @@ for(const file of pages){
   assert.equal(ids.length,new Set(ids).size,file+': duplicate IDs');
   assert.equal((html.match(/aria-current="page"/g)||[]).length,1,file+': active navigation');
   assert.ok(html.includes('href="site.css"'),file+': shared stylesheet missing');
+  assert.ok(html.includes('property="og:image"'),file+': social image missing');
+  assert.ok(html.includes('name="twitter:card"'),file+': Twitter card missing');
   for(const match of markup.matchAll(/<(?:a|link|script|img)\b[^>]*?\b(?:href|src)="([^"]+)"/g)){
     const url=match[1];if(/^(https?:|data:|mailto:)/.test(url))continue;
     const [path,hash]=url.split('#');await fs.access(new URL(path||file,root));
@@ -48,7 +50,7 @@ for(const file of pages){
   }
   for(const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(match[1],{filename:file});
 }
-for(const file of ['script.js','research-data.js','investor-data.js','data-status.js'])new vm.Script(await read(file),{filename:file});
+for(const file of ['script.js','research-data.js','investor-data.js','data-status.js','learning-path.js','research-notes.js','watchlist.js'])new vm.Script(await read(file),{filename:file});
 const statusContext={window:{},document:{querySelectorAll:()=>[]}};
 vm.runInNewContext(await read('data-status.js'),statusContext);
 const status=statusContext.window.marketDataStatus;
@@ -56,4 +58,7 @@ const sample={checkedOn:'2026-11-08',reviewDue:'2026-12-08'};
 assert.equal(status(sample,new Date('2026-12-07T12:00:00Z')).stale,false);
 assert.equal(status(sample,new Date('2026-12-08T00:00:00Z')).stale,true);
 assert.equal(status({...sample,checkedOn:'invalid'},new Date('2026-12-08')).stale,true);
-console.log('PASS: datasets, sources, review-date boundaries, JavaScript syntax, navigation, and '+links+' local links/assets.');
+await fs.access(new URL('sitemap.xml',root));
+const image=await fs.readFile(new URL('social-preview.png',root));
+assert.equal(image.subarray(1,4).toString(),'PNG');
+console.log('PASS: datasets, sources, review-date boundaries, JavaScript syntax, navigation, social image and '+links+' local links/assets.');

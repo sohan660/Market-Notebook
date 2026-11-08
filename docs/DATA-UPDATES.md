@@ -19,3 +19,10 @@ Review Research Lab monthly and after annual earnings; review holdings after eac
 - Removed the unsourced Berkshire cash figure, quarter-over-quarter Alphabet claim, and Soros trade-profit anecdote. Holdings snapshots do not represent current portfolios, total firm assets or personal wealth.
 - Exact filing summary and information-table links are stored in investor-data.js and linked beside the charts. Bogle history links to Vanguard.
 - Browser/mobile visual QA was unavailable in this session because computer access failed. DOM interaction and static checks do not replace that review.
+
+## Feature update — November 8, 2026
+- Apple reported financials now link to the audited FY2026 Form 10-K, filed November 3, 2026. Comparative FY2024–2026 values were retained.
+- Research Lab comparison refreshes after a company change while comparing; EPS explanation matches the reported EPS metric. Homepage no longer promises valuation analysis and Research Lab no longer promises debt metrics.
+- Research Lab styling has its own CSS file; browser-only notes, learning progress and a watchlist have new JS files. The watchlist links to external quotes; it contains no market-price feed.
+- A custom social share PNG and sitemap were added. After deployment verify the social thumbnail, the GitHub Pages URL and Search Console sitemap submission manually.
+- Test on phone and desktop: localStorage saves, cross-company note switching, file exports, invalid tickers, keyboard focus, and menu links.
