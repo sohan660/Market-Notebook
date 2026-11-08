@@ -13,6 +13,7 @@ This is an educational project for students who want to understand investing wit
 - **Home — `index.html`:** introduction and an interactive chart of S&P 500 annual total returns from 2000–2025.
 - **Investing 101 — `start.html`:** stocks, ETFs, risk, fund fees, account basics, historical charts, two hypothetical calculators, and a five-question quiz.
 - **Investor research — `investors.html`:** Berkshire Hathaway/Warren Buffett, Pershing Square/Bill Ackman, Soros Fund Management, and John Bogle. Includes historical returns and dated Form 13F holdings visualizations.
+- **Research Lab — `research.html`:** fictional company data for practicing comparisons and a research checklist; not live market data.
 - **About Sohan — `about.html`:** education, research experience, interests, and a LinkedIn contact link.
 
 Charts and quiz logic live in `script.js`; visual styling lives in `styles.css`. The current logo and browser favicon are `logo.svg` and `favicon.svg`.
@@ -39,7 +40,7 @@ This is a static site built with HTML, CSS and plain JavaScript. It requires no 
 
 On GitHub, edit the desired file on the `main` branch and commit the change. GitHub Pages deploys the repository root. You can inspect deployment status in **Actions**.
 
-The repository name stays `beginnerinvestmentguide` so existing website links remain valid even though the **website brand** is now **Market Notebook**.
+The repository is `Market-Notebook`; the GitHub Pages URL is https://sohan660.github.io/Market-Notebook/.
 
 ## About this project
 
