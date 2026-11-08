@@ -13,7 +13,7 @@ This is an educational project for students who want to understand investing wit
 - **Home — `index.html`:** introduction and an interactive chart of S&P 500 annual total returns from 2000–2025.
 - **Investing 101 — `start.html`:** stocks, ETFs, risk, fund fees, account basics, historical charts, two hypothetical calculators, and a five-question quiz.
 - **Investor research — `investors.html`:** Berkshire Hathaway/Warren Buffett, Pershing Square/Bill Ackman, Soros Fund Management, and John Bogle. Includes historical returns and dated Form 13F holdings visualizations.
-- **Research Lab — `research.html`:** fictional company data for practicing comparisons and a research checklist; not live market data.
+- **Research Lab — `research.html`:** reported company annual financials with source links, fiscal dates, comparison charts and a research checklist; not live quotes.
 - **About Sohan — `about.html`:** education, research experience, interests, and a LinkedIn contact link.
 
 Charts and quiz logic live in `script.js`; visual styling lives in `styles.css`. The current logo and browser favicon are `logo.svg` and `favicon.svg`.
@@ -47,3 +47,9 @@ The repository is `Market-Notebook`; the GitHub Pages URL is https://sohan660.gi
 Created for learning, not for personalized financial or tax advice. Public-data examples may become outdated, and investing involves possible losses. This project is not affiliated with or endorsed by the investors, firms, or data publishers mentioned.
 
 © 2026 Sohan Shrestha.
+
+## Research Lab data
+
+research-data.js stores reported GAAP annual revenue and net income in USD millions and diluted EPS in USD/share. Every year has a period-end date and source index. Snapshot checked November 8, 2026: Apple and Microsoft FY2024–2026; Coca-Cola FY2023–2025. Apple figures come from unaudited earnings statements; Microsoft and Coca-Cola from annual reports. Updates are manual; no live quotes or quarterly refresh is configured.
+
+To update, verify the original report, add the annual values and exact period end with a source link, update the checked date and visible snapshot text, and test the chart and comparison years. Preserve past years used by comparisons. Net margin and revenue growth are calculated from the stored values. P/E has been replaced by reported diluted EPS because no dated stock-price feed is connected.
