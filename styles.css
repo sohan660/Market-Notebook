@@ -262,3 +262,24 @@ figure.chart{max-width:calc(100% + 20px)}
   .btn, .home-button, .home-lesson { transition: none; will-change: auto; }
   .btn.tap-pop::after, .home-button.tap-pop::after, .home-lesson.tap-pop::after { animation: none; }
 }
+
+
+/* Homepage invitation to the interactive Research Lab demo. */
+.home-lab-promo{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:35px;align-items:center;max-width:1064px;padding:34px 38px;margin-bottom:77px;border:1px solid #d2dfcf;border-radius:16px;background:#e6eee5}
+.home-lab-promo-copy{min-width:0}
+.home-page .home-lab-promo h2{font:700 clamp(28px,3.1vw,40px)/1.16 Georgia,"Times New Roman",serif;letter-spacing:-.03em;margin:0 0 14px;color:#1f4136}
+.home-lab-promo-copy>p:not(.home-lab-promo-note){font-size:15px;line-height:1.7;color:#4b6054;margin:0 0 20px}
+.home-page .home-lab-promo-note{color:#66766a;font-size:11px;line-height:1.5;margin:14px 0 0}
+.home-lab-mini{overflow:hidden;min-width:0;background:#fffefa;border-radius:13px;border:1px solid #dbe3da;box-shadow:0 12px 29px rgba(31,65,54,.08)}
+.home-lab-mini-top{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#1f4136;color:#dceade;padding:14px 18px;font-size:10px;font-weight:800;letter-spacing:.1em}
+.home-lab-mini-dots{display:flex;gap:5px}
+.home-lab-mini-dots i{width:7px;height:7px;border-radius:50%;background:#d2a664;display:block}
+.home-lab-mini-dots i:nth-child(2){background:#b6d1b6}
+.home-lab-mini-dots i:nth-child(3){background:#fff1cc}
+.home-lab-mini-title{font:700 25px/1.2 Georgia,serif;color:#224334;padding:21px 20px 15px}
+.home-lab-mini-grid{display:grid;gap:7px;padding:0 20px 20px}
+.home-lab-mini-grid span{border:1px solid #e4e9e1;border-radius:7px;padding:9px 12px;color:#6f8676;font-size:10px;letter-spacing:.08em;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.home-lab-mini-grid b{color:#305f46;font-size:12px;letter-spacing:0;text-align:right}
+.home-lab-mini-bottom{display:flex;justify-content:space-between;gap:8px;padding:12px 20px;background:#f6f7f2;color:#5c816a;font-size:10px;font-weight:800;border-top:1px solid #e4e9e1}
+@media(max-width:760px){.home-lab-promo{grid-template-columns:1fr;padding:28px 25px;gap:25px;margin-bottom:58px}.home-lab-mini{max-width:540px;width:100%}}
+@media(max-width:480px){.home-lab-promo{padding:24px 19px}.home-lab-mini-title{font-size:22px}.home-lab-mini-grid b{font-size:11px}}
