@@ -1,64 +1,62 @@
 import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
+
 const root=new URL('../',import.meta.url);
 const read=file=>fs.readFile(new URL(file,root),'utf8');
-function dataset(code,key){const context={window:{}};vm.runInNewContext(code,context);return context.window[key];}
-const research=dataset(await read('research-data.js'),'MARKET_FINANCIALS');
-const holdings=dataset(await read('investor-data.js'),'MARKET_HOLDINGS');
-for(const data of [research,holdings]){
-  assert.match(data.checkedOn,/^\d{4}-\d{2}-\d{2}$/);
-  assert.ok(Date.parse(data.reviewDue)>Date.parse(data.checkedOn),'reviewDue must follow checkedOn');
-}
-for(const company of Object.values(research.companies)){
+const pages=['index.html','start.html','investors.html','research.html','watchlist.html','about.html'];
+const scripts=['script.js','research-data.js','learning-path.js','research-notes.js','watchlist.js','share.js'];
+
+const context={window:{}};
+vm.runInNewContext(await read('research-data.js'),context);
+const study=context.window.MARKET_FINANCIALS;
+assert.ok(study?.companies,'Historical financial examples missing');
+assert.ok(!('reviewDue' in study),'Historical data should have no review deadline');
+for(const company of Object.values(study.companies)){
   const years=new Set();
   for(const row of company.annual){
-    assert.ok(!years.has(row.year),'Duplicate annual year');years.add(row.year);
-    assert.ok(Number.isInteger(row.year)&&row.end.startsWith(String(row.year)));
-    for(const field of ['revenue','netIncome','eps'])assert.ok(Number.isFinite(row[field]));
-    assert.ok(row.revenue>0);
-    assert.ok(company.sources[row.source]?.url.startsWith('https://'));
+    assert.ok(Number.isInteger(row.year)&&!years.has(row.year),'Invalid/duplicate year');
+    years.add(row.year);
+    assert.ok(row.end.startsWith(String(row.year)),'Fiscal end mismatch');
+    for(const key of ['revenue','netIncome','eps'])assert.ok(Number.isFinite(row[key]),'Non-numeric financial value');
+    assert.ok(row.revenue>0,'Revenue should be positive');
+    assert.ok(company.sources[row.source]?.url.startsWith('https://'),'Missing historical report source');
   }
-  for(const year of [2024,2025])assert.ok(years.has(year),'Missing comparison year');
+  for(const year of [2024,2025])assert.ok(years.has(year),'Comparison year missing');
 }
-for(const manager of Object.values(holdings.managers)){
-  assert.ok(Number.isSafeInteger(manager.total)&&manager.total>0);
-  assert.ok(Number.isInteger(manager.entries)&&manager.entries>0);
-  assert.ok(manager.summary.startsWith('https://www.sec.gov/'));
-  assert.ok(manager.table.startsWith('https://www.sec.gov/'));
-  if(manager.top){
-    assert.ok(manager.top.every(row=>Number.isSafeInteger(row.v)&&row.v>0));
-    assert.ok(manager.top.reduce((a,row)=>a+row.v,0)<=manager.total,'Selected holdings exceed filing total');
-  }
-}
-const pages=['index.html','start.html','investors.html','research.html','watchlist.html','about.html'];
+
 let links=0;
 for(const file of pages){
-  const html=await read(file);
-  const markup=html.replace(/<script>[\s\S]*?<\/script>/g,'');
+  const html=await read(file),markup=html.replace(/<script>[\s\S]*?<\/script>/g,'');
   const ids=[...markup.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
   assert.equal(ids.length,new Set(ids).size,file+': duplicate IDs');
-  assert.equal((html.match(/aria-current="page"/g)||[]).length,1,file+': active navigation');
-  assert.ok(html.includes('href="site.css"'),file+': shared stylesheet missing');
-  assert.ok(html.includes('property="og:image"'),file+': social image missing');
-  assert.ok(html.includes('name="twitter:card"'),file+': Twitter card missing');
-  for(const match of markup.matchAll(/<(?:a|link|script|img)\b[^>]*?\b(?:href|src)="([^"]+)"/g)){
-    const url=match[1];if(/^(https?:|data:|mailto:)/.test(url))continue;
-    const [path,hash]=url.split('#');await fs.access(new URL(path||file,root));
+  assert.equal((html.match(/aria-current="page"/g)||[]).length,1,file+': exactly one active nav link needed');
+  for(const pattern of ['href="site.css"','property="og:image"','name="twitter:card"','href="watchlist.html"','Investor Principles</a>'])
+    assert.ok(html.includes(pattern),file+': missing '+pattern);
+  assert.ok(!html.includes('data-status.js')&&!html.includes('investor-data.js'),file+': obsolete live-maintenance script linked');
+  for(const m of markup.matchAll(/<(?:a|link|script|img)\b[^>]*?\b(?:href|src)="([^"]+)"/g)){
+    const url=m[1];if(/^(https?:|data:|mailto:)/.test(url))continue;
+    const [path,hash]=url.split('#');
+    await fs.access(new URL(path||file,root));
     if(hash)assert.ok((await read(path||file)).includes('id="'+hash+'"'),file+': broken anchor '+url);
     links++;
   }
-  for(const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(match[1],{filename:file});
+  for(const m of html.matchAll(/<script>([\s\S]*?)<\/script>/g))new vm.Script(m[1],{filename:file});
 }
-for(const file of ['script.js','research-data.js','investor-data.js','data-status.js','learning-path.js','research-notes.js','watchlist.js'])new vm.Script(await read(file),{filename:file});
-const statusContext={window:{},document:{querySelectorAll:()=>[]}};
-vm.runInNewContext(await read('data-status.js'),statusContext);
-const status=statusContext.window.marketDataStatus;
-const sample={checkedOn:'2026-11-08',reviewDue:'2026-12-08'};
-assert.equal(status(sample,new Date('2026-12-07T12:00:00Z')).stale,false);
-assert.equal(status(sample,new Date('2026-12-08T00:00:00Z')).stale,true);
-assert.equal(status({...sample,checkedOn:'invalid'},new Date('2026-12-08')).stale,true);
-await fs.access(new URL('sitemap.xml',root));
-const image=await fs.readFile(new URL('social-preview.png',root));
-assert.equal(image.subarray(1,4).toString(),'PNG');
-console.log('PASS: datasets, sources, review-date boundaries, JavaScript syntax, navigation, social image and '+links+' local links/assets.');
+for(const file of scripts)new vm.Script(await read(file),{filename:file});
+const research=await read('research.html'),watch=await read('watchlist.js'),home=await read('index.html'),investors=await read('investors.html');
+assert.ok(research.includes('function loadChecklist()')&&research.includes('localStorage.setItem(checklistKey()'),'Research checklist persistence missing');
+assert.ok(watch.includes("kind==='edit'")&&watch.includes("kind==='save'"),'Watchlist editing missing');
+assert.ok(home.includes('id="copy-site-link"')&&home.includes('src="share.js"'),'Share link missing');
+assert.ok(!investors.includes('13F')&&!investors.includes('MARKET_HOLDINGS'),'Investor Principles must remain evergreen');
+const sitemap=await read('sitemap.xml');
+assert.equal((sitemap.match(/<url>/g)||[]).length,pages.length,'Sitemap page count mismatch');
+for(const p of pages){
+  const url='https://sohan660.github.io/Market-Notebook/'+(p==='index.html'?'':p);
+  assert.ok(sitemap.includes('<loc>'+url+'</loc>'),'Missing sitemap URL '+url);
+}
+const png=await fs.readFile(new URL('social-preview.png',root));
+assert.equal(png.subarray(1,4).toString(),'PNG');
+assert.equal(png.readUInt32BE(16),1200);
+assert.equal(png.readUInt32BE(20),630);
+console.log('PASS: case studies, evergreen pages, saved checklists, editable watchlist, JavaScript syntax, social card, sitemap and '+links+' links/assets.');

@@ -1,70 +1,54 @@
 # Market Notebook
 
-**Stocks, ETFs, and market data explained by a college student.**
+**Learn what you are buying. Then decide for yourself.**
 
-A free, independently written investing guide by Sohan Shrestha, a first-year student at Franklin & Marshall College.
+Visit: https://sohan660.github.io/Market-Notebook/
 
-**Website:** https://sohan660.github.io/Market-Notebook/
+Market Notebook is a free investing education project made by a student at Franklin & Marshall College. It deliberately avoids live market-data feeds and ongoing SEC filing updates.
 
-## What you can learn
+## Pages
 
-This is an educational project for students who want to understand investing without being told what to buy.
+- **Home (index.html):** introduction and a fixed historical S&P 500 returns chart for 2000–2025.
+- **Investing 101 (start.html):** basics, risk, ETF fees, compounding calculators, a quiz and a locally saved learning path.
+- **Investor Principles (investors.html):** evergreen lessons about understanding businesses, diversification, costs and patience; no current investor holdings or Form 13F tracking.
+- **Research Lab (research.html):** fixed historical financial case studies: Apple and Microsoft FY2024–2026, Coca-Cola FY2023–2025. Practice margin calculations, comparisons, a locally saved company-specific checklist, and exportable notes. **Not current market analysis.**
+- **Watchlist (watchlist.html):** up to 25 tickers with editable research notes, CSV export and external quote/chart links. The website checks ticker formatting but does not verify existence or fetch prices.
+- **About (about.html):** creator background and LinkedIn.
 
-- **Home — `index.html`:** introduction and an interactive chart of S&P 500 annual total returns from 2000–2025.
-- **Investing 101 — `start.html`:** stocks, ETFs, risk, fund fees, account basics, historical charts, two hypothetical calculators, and a five-question quiz.
-- **Investor research — `investors.html`:** Berkshire Hathaway/Warren Buffett, Pershing Square/Bill Ackman, Soros Fund Management, and John Bogle. Includes historical returns and dated Form 13F holdings visualizations.
-- **Research Lab — `research.html`:** reported company annual financials with source links, fiscal dates, comparison charts and a research checklist; not live quotes.
-- **Watchlist — `watchlist.html`:** locally saved tickers, short notes, external quote links and CSV export. No live prices are fetched.
-- **Investing 101 learning path:** five checkable lessons with progress saved locally in the browser.
-- **Research Lab notes:** company-specific investment thesis and risk notes with Markdown export.
-- **About Sohan — `about.html`:** education, research experience, interests, and a LinkedIn contact link.
+## No routine filing/data updates required
 
-Charts and quiz logic live in `script.js`; visual styling lives in `styles.css`, `site.css`, `research.css` and `features.css`. The current logo and browser favicon are `logo.svg` and `favicon.svg`.
+The S&P 500 2000–2025 series is a deliberately bounded historical lesson, not a continuously growing chart. The Research Lab's dated source reports are **permanent historical examples**; newer earnings are not meant to be incorporated. Current quotes belong on the external websites linked from the watchlist. No ongoing 13F holdings, live feeds, or automatic data refresh deadlines exist on this website.
 
-## Important notes about the numbers
+Future updates can focus on better learning experiences, design and accessibility rather than copying earnings releases. Readers must check more recent primary sources before making investment decisions.
 
-- The market return charts use **historical calendar-year data through 2025**, not live prices.
-- The $10,000 S&P 500 illustration applies those historical annual index returns to a hypothetical starting balance. It assumes dividend reinvestment and excludes fees and taxes.
-- The long-term growth and fee calculators assume fixed returns. **They are examples, not forecasts or promises.**
-- Form 13F data covers certain reportable securities positions at a quarter end, with disclosure delays; **portfolio value does not mean personal wealth, profit, or total firm assets.** The current holdings examples are snapshots from June 30, 2026, not live positions.
+## Browser-only features and privacy
 
-### Sources to consult
+Research checklists, research notes, investing lessons progress and watchlists use browser localStorage. Research notes can be exported to Markdown and the watchlist to CSV. There are no accounts or cloud sync; clearing browser data may erase saved work.
 
-- [S&P Dow Jones Indices: annual returns and market commentary](https://www.spglobal.com/spdji/en/commentary/article/us-equities-market-attributes)
-- [Berkshire Hathaway's 2025 annual report](https://berkshirehathaway.com/2025ar/2025ar.pdf)
-- [SEC: Form 13F FAQ](https://www.sec.gov/rules-regulations/staff-guidance/frequently-asked-questions-about-form-13f)
-- [SEC Investor.gov: ETFs](https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-2)
-- [Investment Company Institute: 2025 fund fees](https://www.ici.org/news-release/mutual-fund-and-etf-fees-remained-near-historic-lows-in-2025)
-- [GuruFocus investor directory](https://www.gurufocus.com/guru/list)
+## Technical organization
 
-## Editing
+Static HTML/CSS/vanilla JavaScript, deployed from main via GitHub Pages. No build, paid API or user account required.
 
-This is a static site built with HTML, CSS and plain JavaScript. It requires no server, sign-in, build system, API token, or stock market API.
+- styles.css + site.css: global design
+- research.css + features.css: Research Lab and newer tools
+- script.js: bounded historical market charts, calculators and quiz
+- research-data.js: **frozen historical** company data with source links
+- research-notes.js: per-company notes
+- learning-path.js: learning progress
+- watchlist.js: editable watchlist and CSV export
+- share.js: homepage copy-link action
+- sitemap.xml + social-preview.png: search discovery and link previews
 
-On GitHub, edit the desired file on the `main` branch and commit the change. GitHub Pages deploys the repository root. You can inspect deployment status in **Actions**.
+Maintenance checklist: [docs/MAINTENANCE.md](docs/MAINTENANCE.md).
 
-The repository is `Market-Notebook`; the GitHub Pages URL is https://sohan660.github.io/Market-Notebook/.
+Validate the site with: node scripts/validate-site.mjs
 
-## About this project
+An automated GitHub Actions workflow runs the same validation on pushes and pull requests.
 
-Created for learning, not for personalized financial or tax advice. Public-data examples may become outdated, and investing involves possible losses. This project is not affiliated with or endorsed by the investors, firms, or data publishers mentioned.
+## Sources and disclaimer
+
+Historical examples link to original company reports. Additional learning material: https://www.investor.gov/introduction-investing/investing-basics
+
+This project is independent, educational, not affiliated with the referenced companies, and not personalized investment advice. Market prices fluctuate and past results do not predict future returns.
 
 © 2026 Sohan Shrestha.
-
-## Research Lab data
-
-research-data.js stores reported GAAP annual revenue and net income in USD millions and diluted EPS in USD/share. Every year has a period-end date and source index. Snapshot checked November 8, 2026: Apple and Microsoft FY2024–2026; Coca-Cola FY2023–2025. Apple FY2024–FY2026 figures come from its audited FY2026 Form 10-K; Microsoft and Coca-Cola from annual reports. Updates are manual; no live quotes or quarterly refresh is configured.
-
-To update, verify the original report, add the annual values and exact period end with a source link, update the checked date and visible snapshot text, and test the chart and comparison years. Preserve past years used by comparisons. Net margin and revenue growth are calculated from the stored values. P/E has been replaced by reported diluted EPS because no dated stock-price feed is connected.
-
-## Maintenance and validation
-
-See [the data review procedure](docs/DATA-UPDATES.md) for source checks, refresh steps and the November 2026 audit. Run node scripts/validate-site.mjs before publishing. Research Lab and Investor Playbook show review dates and turn the notice amber when a review is overdue. These reminders do not automatically refresh financial figures.
-
-Shared navigation, footer, typography and responsive refinements live in site.css. Investing 101 and Investor Playbook include section navigation. Browser rendering still requires the manual viewport checks listed in the procedure.
-
-## Browser-only tools and social sharing
-- The site includes a share preview image (`social-preview.png`, 1200 × 630), Open Graph / Twitter metadata and a six-page `sitemap.xml` for search discovery.
-- `learning-path.js` stores completed lessons in browser localStorage. `research-notes.js` saves notes separately for each company and exports Markdown. `watchlist.js` saves up to 25 tickers with a research reason and exports CSV.
-- The watchlist does not retrieve or simulate real-time quotes; its quote/chart links open Yahoo Finance in a separate tab. Confirm current prices and their timestamps on the external page.
-- Browser-only storage is not synchronized. Clearing site data can erase saved progress and notes; export files to keep copies.

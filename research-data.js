@@ -1,6 +1,6 @@
 /* Reported GAAP annual figures. Revenue and net income: USD millions. EPS: USD/share. Manual review required. */
 window.MARKET_FINANCIALS = {
-  "checkedOn": "2026-11-08",
+  "snapshotLabel": "Fixed FY2023–FY2026 historical case studies",
   "companies": {
     "aapl": {
       "name": "Apple",
@@ -120,6 +120,5 @@ window.MARKET_FINANCIALS = {
         }
       ]
     }
-  },
-  "reviewDue": "2026-12-08"
+  }
 };

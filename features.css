@@ -14,3 +14,41 @@
 .watch-item{padding:19px;border:1px solid #dfe7db;background:#fbfcf8;border-radius:10px}.watch-item-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.watch-item-head h3{font:700 25px Georgia,serif;margin:0;color:#24543a}.watch-item-head span{font-size:11px;color:#657d69}.watch-item-note{font-size:13px;overflow-wrap:anywhere;white-space:pre-wrap}.watch-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.watch-actions .feature-btn{font-size:12px}.watchlist-empty{color:#667567;font-size:14px}
 @media(max-width:660px){.notes-grid,.study-track-list,.watchlist-entries,.watchlist-form-grid{grid-template-columns:1fr}.study-track-head{display:block}.study-track-head strong{display:block;margin:10px 0}.study-track,.watchlist-add,.watchlist-results,.watchlist-help,.research-notes{padding:17px}.notes-head{flex-direction:column}}
 @media(prefers-reduced-motion:reduce){.study-track-progress span{transition:none}}
+
+/* Evergreen investor principles and editable watchlist notes. */
+.principles-page main.wrap{max-width:1020px}
+.principles-hero{padding:14px 0 38px;max-width:820px}
+.principles-hero h1{font:700 clamp(37px,5.4vw,62px)/1.11 Georgia,serif;color:#214736;letter-spacing:-.042em;margin:9px 0 21px}
+.principles-hero h1 em{color:#5b8469;font-weight:400}
+.principles-hero>p:not(.eyebrow){max-width:760px}
+.principle-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:25px 0 38px}
+.principle-card,.principle-lenses,.principle-exercise,.principle-action{background:#fffefa;border:1px solid #dbe4d8;border-radius:13px;padding:26px}
+.principle-card>span{font:800 11px system-ui,sans-serif;color:#61816a;letter-spacing:.11em}
+.principle-card h3{font:700 26px/1.2 Georgia,serif;color:#254e3c;margin:17px 0 10px}
+.principle-card>p{font-size:14px;color:#4e6655;line-height:1.75}
+.principle-card .principle-prompt{border-top:1px solid #e4e9e2;padding-top:14px;color:#265c43;font-weight:700}
+.principle-lenses,.principle-exercise,.principle-action{margin:24px 0}
+.principle-lens-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.principle-lens-grid article{padding:19px 21px;border-radius:10px;background:#eff5ed}
+.principle-lens-grid h3{font:700 23px/1.2 Georgia,serif;color:#28543f}
+.principle-lens-grid p{font-size:14px;line-height:1.7}
+.principle-lens-grid a,.principle-reading a{color:#285f45;font-weight:750}
+.principles-context{font-size:13px;color:#627066}
+.principle-exercise summary{cursor:pointer;min-height:44px;padding:13px 16px;background:#eef4ea;border:1px solid #d7e3d3;border-radius:9px;color:#2c6348;font-weight:750}
+.principle-exercise details p{padding:10px 16px 0;font-size:14px}
+.principle-action{display:flex;justify-content:space-between;align-items:center;gap:22px;background:#e8f0e6}
+.principle-action>div:first-child{max-width:620px}
+.principle-action-links{display:flex;flex-direction:column;gap:10px;min-width:190px}
+.principle-reading{padding-bottom:18px;font-size:14px;color:#536957}
+.watch-edit-label{display:block;font:700 13px system-ui,sans-serif;color:#315a42;margin-top:15px}
+.watch-edit-input{display:block;box-sizing:border-box;width:100%;max-width:100%;min-height:90px;resize:vertical;border:1px solid #b9cbbb;border-radius:8px;background:white;padding:10px;margin-top:7px;font:14px/1.6 system-ui,sans-serif}
+.watchlist-format{font-size:12px;color:#5c7262}
+@media(max-width:700px){.principle-grid,.principle-lens-grid{grid-template-columns:1fr}.principle-action{align-items:stretch;flex-direction:column}.principle-action-links{flex-direction:row;flex-wrap:wrap;min-width:0}.principle-card,.principle-lenses,.principle-exercise,.principle-action{padding:20px}}
+
+/* Invite readers to share the beginner guide. */
+.share-invite{background:#e8f0e6;border:1px solid #d3dfd0;border-radius:15px;display:flex;align-items:center;justify-content:space-between;gap:28px;padding:32px 35px;margin:0 auto 65px}
+.home-page .share-invite h2{font:700 clamp(24px,3vw,36px)/1.17 Georgia,serif;color:#244b36;max-width:650px;margin:8px 0 12px}
+.share-invite p{font-size:14px;line-height:1.7;color:#566d5c;max-width:650px;margin:0}
+.share-actions{display:flex;flex-direction:column;min-width:195px;gap:10px}
+.share-actions #share-status{font-size:12px;color:#5a725f}
+@media(max-width:720px){.share-invite{padding:22px;flex-direction:column;align-items:stretch}.share-actions{min-width:0}}
