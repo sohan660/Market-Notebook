@@ -4,8 +4,8 @@ import assert from 'node:assert/strict';
 
 const root=new URL('../',import.meta.url);
 const read=file=>fs.readFile(new URL(file,root),'utf8');
-const pages=['index.html','start.html','investors.html','research.html','watchlist.html','about.html'];
-const scripts=['script.js','research-data.js','learning-path.js','research-notes.js','watchlist.js','share.js'];
+const pages=['index.html','start.html','investors.html','research.html','watchlist.html','glossary.html','about.html'];
+const scripts=['script.js','research-data.js','learning-path.js','research-notes.js','watchlist.js','share.js','nav.js','quiz.js','glossary.js'];
 
 const context={window:{}};
 vm.runInNewContext(await read('research-data.js'),context);
@@ -31,7 +31,7 @@ for(const file of pages){
   const ids=[...markup.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
   assert.equal(ids.length,new Set(ids).size,file+': duplicate IDs');
   assert.equal((html.match(/aria-current="page"/g)||[]).length,1,file+': exactly one active nav link needed');
-  for(const pattern of ['href="site.css"','property="og:image"','name="twitter:card"','href="watchlist.html"','Investor Principles</a>'])
+  for(const pattern of ['href="site.css"','href="enhancements.css"','src="nav.js"','class="mobile-menu-toggle"','id="site-links"','property="og:image"','name="twitter:card"','href="watchlist.html"','href="glossary.html"','Investor Principles</a>'])
     assert.ok(html.includes(pattern),file+': missing '+pattern);
   assert.ok(!html.includes('data-status.js')&&!html.includes('investor-data.js'),file+': obsolete live-maintenance script linked');
   for(const m of markup.matchAll(/<(?:a|link|script|img)\b[^>]*?\b(?:href|src)="([^"]+)"/g)){
@@ -46,7 +46,16 @@ for(const file of pages){
 for(const file of scripts)new vm.Script(await read(file),{filename:file});
 const research=await read('research.html'),watch=await read('watchlist.js'),home=await read('index.html'),investors=await read('investors.html');
 assert.ok(research.includes('function loadChecklist()')&&research.includes('localStorage.setItem(checklistKey()'),'Research checklist persistence missing');
+assert.ok(research.includes("const checklistInputs=$$("),'Research checklist must select all five checkboxes');
+assert.ok(research.includes('id="notes" role="tabpanel"')&&research.includes('id="copy-case-link"'),'Notes tab or deep link missing');
+assert.ok(research.includes("query.get('company')")&&research.includes("query.get('tab')"),'Research deep links missing');
 assert.ok(watch.includes("kind==='edit'")&&watch.includes("kind==='save'"),'Watchlist editing missing');
+assert.ok(watch.includes('function parseCSV(source)')&&watch.includes("watch-import-file"),'Watchlist import missing');
+const quiz=await read('quiz.js'),start=await read('start.html'),glossary=await read('glossary.html');
+assert.ok(start.includes('src="quiz.js"')&&start.includes('id="quiz-results"'),'Shareable quiz UI missing');
+assert.ok(quiz.includes('quiz-share')&&quiz.includes('quiz-retake'),'Quiz share/retake logic missing');
+assert.equal((glossary.match(/class="glossary-term"/g)||[]).length,29,'Glossary term count changed');
+assert.ok(glossary.includes('src="glossary.js"'),'Glossary search missing');
 assert.ok(home.includes('id="copy-site-link"')&&home.includes('src="share.js"'),'Share link missing');
 assert.ok(!investors.includes('13F')&&!investors.includes('MARKET_HOLDINGS'),'Investor Principles must remain evergreen');
 const sitemap=await read('sitemap.xml');
@@ -59,4 +68,4 @@ const png=await fs.readFile(new URL('social-preview.png',root));
 assert.equal(png.subarray(1,4).toString(),'PNG');
 assert.equal(png.readUInt32BE(16),1200);
 assert.equal(png.readUInt32BE(20),630);
-console.log('PASS: case studies, evergreen pages, saved checklists, editable watchlist, JavaScript syntax, social card, sitemap and '+links+' links/assets.');
+console.log('PASS: seven pages, historical data, glossary, quiz, checklist, CSV import, JS syntax, social image, sitemap and '+links+' internal links/assets.');

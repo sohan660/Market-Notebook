@@ -1,0 +1,104 @@
+/* Market Notebook refinements: a small student-made learning site, not a trading terminal. */
+
+/* Navigation stays readable without JavaScript. With JS it folds into a menu below 1081px. */
+.mobile-menu-toggle[hidden]{display:none!important}
+.mobile-menu-toggle{display:none;align-items:center;justify-content:center;gap:11px;min-height:44px;padding:9px 13px;background:#fffefa;border:1px solid #b9cbbd;border-radius:9px;color:#26543c;font:750 13px/1.3 system-ui,sans-serif;cursor:pointer}
+.mobile-menu-toggle span:last-child{font-size:18px;line-height:1}
+@media(max-width:1080px){
+  .site-nav{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px 18px;padding:16px 22px}
+  .site-brand{white-space:normal;font-size:23px;min-width:0}
+  .site-brand span{max-width:220px}
+  .site-nav .mobile-menu-toggle:not([hidden]){display:inline-flex}
+  .site-nav .site-links{grid-column:1/-1;display:flex;flex-direction:column;align-items:stretch;gap:2px;width:100%;padding:9px 0 2px;border-top:1px solid #e6ebe3}
+  .site-nav.nav-ready .site-links:not(.is-open){display:none}
+  .site-nav.nav-ready .site-links.is-open{display:flex}
+  .site-nav .site-links a{display:flex;align-items:center;min-height:44px;width:100%;padding:9px 12px;border-radius:7px;font-size:14px}
+  .site-nav .site-links a:hover,.site-nav .site-links a[aria-current=page]{background:#eff4ed;text-decoration:none;color:#1f5039}
+}
+@media(max-width:480px){.site-nav{padding:13px 17px;column-gap:8px}.site-brand{font-size:21px}.site-brand span{font-size:10px}.mobile-menu-toggle{padding:9px 11px}}
+
+/* Quiz: answer cards that feel like study notes, not a graded exam. */
+.quiz-section{margin:48px 0 44px;scroll-margin-top:20px}
+.quiz-section-head{display:flex;align-items:start;justify-content:space-between;gap:24px;margin-bottom:16px}
+.reading-page .quiz-section h2{font:700 clamp(28px,3.5vw,37px)/1.18 Georgia,serif;margin:0 0 11px;padding:0}
+.quiz-section-head p:not(.eyebrow){color:#586c5d;font-size:14px;line-height:1.7;margin:0}
+.quiz-score-pill{min-width:155px;border:1px solid #d6e4d3;background:#eaf2e8;border-radius:10px;padding:13px 15px;color:#29583f}
+.quiz-score-pill strong{display:block;font:800 15px/1.4 system-ui,sans-serif}
+.quiz-score-pill span{display:block;margin-top:5px;font-size:11px;color:#627464}
+.reading-page .quiz-form{padding:22px;background:#fffefa}
+.quiz-question{border:0;border-bottom:1px solid #e4eadd;padding:17px 0 19px;margin:0;min-width:0}
+.quiz-question:first-child{padding-top:0}
+.quiz-question legend{padding:0;margin-bottom:12px;color:#244b38;font:750 16px/1.5 system-ui,sans-serif}
+.quiz-question label{display:flex;align-items:center;gap:10px;background:#f9faf7;border:1px solid #e1e8df;border-radius:9px;padding:11px 13px;margin-top:8px;min-height:44px;font:14px/1.5 system-ui,sans-serif;cursor:pointer}
+.quiz-question label:hover{background:#eff5ed}
+.quiz-question label:has(input:checked){background:#e8f1e6;border-color:#97b69d}
+.quiz-question input{flex:none;accent-color:#285b41;width:17px;height:17px;margin:0}
+.quiz-feedback{margin:9px 2px 0;font-size:13px;line-height:1.6;color:#475b4f}
+.quiz-feedback:empty{display:none}
+.quiz-feedback.is-correct{color:#2d7050}.quiz-feedback.is-incorrect{color:#955333}
+.quiz-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:20px 0 7px}
+.quiz-actions button[hidden]{display:none!important}
+.quiz-actions button:disabled{opacity:.48;cursor:not-allowed}
+.quiz-results{margin:20px 0 10px;background:#eaf2e8;border:1px solid #d3e3d3;border-radius:11px;padding:24px}
+.quiz-results[hidden]{display:none!important}
+.quiz-results .eyebrow{margin:0 0 12px}
+.quiz-big-score{font:700 49px/1 Georgia,serif;color:#255b40}
+.quiz-percent{font-weight:750;color:#3f6b4e;margin:9px 0}
+.quiz-results p{font-size:14px;line-height:1.6}
+.quiz-result-fineprint,.quiz-share-status{font-size:12px;color:#657569}
+.quiz-share-status:empty{display:none}
+@media(max-width:620px){.quiz-section-head{display:block}.quiz-score-pill{margin-top:17px;display:inline-block}.reading-page .quiz-form{padding:15px}.quiz-actions{align-items:stretch}.quiz-actions button{flex:1 1 150px}}
+
+/* A pocket glossary with readable definitions and quick search. */
+.glossary-page main.wrap{max-width:1090px}
+.glossary-hero{max-width:830px;padding-bottom:18px}
+.glossary-hero h1{font:700 clamp(38px,5vw,58px)/1.1 Georgia,serif;letter-spacing:-.04em;color:#204632}
+.glossary-hero h1 em{font-weight:400;color:#5b8065}
+.glossary-fineprint{color:#617367;font-size:13px;line-height:1.7}
+.glossary-tools{background:#edf3ea;border:1px solid #d6e2d3;border-radius:14px;padding:20px 22px;margin:17px 0 23px}
+.glossary-search-row label{display:block;font:750 13px/1.4 system-ui,sans-serif;color:#365f43;margin-bottom:9px}
+.glossary-search-controls{display:flex;gap:10px;align-items:center}
+.glossary-search-controls input{flex:1;min-height:47px;padding:10px 14px;border:1px solid #bbd0c1;border-radius:9px;background:#fffefa;font-size:16px}
+.glossary-categories{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}
+.glossary-categories button{min-height:40px;border:1px solid #c7d7c4;background:#fffefa;border-radius:40px;padding:8px 13px;color:#356047;font:700 12px system-ui,sans-serif;cursor:pointer}
+.glossary-categories button[aria-pressed=true]{background:#255b42;color:white;border-color:#255b42}
+.glossary-count{font-size:12px;margin:14px 0 0;color:#5d7263}
+.glossary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.glossary-term{min-width:0;padding:23px 24px;background:#fffefa;border:1px solid #dfe7dd;border-radius:12px}
+.glossary-term[hidden],.glossary-empty[hidden]{display:none!important}
+.glossary-card-top{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#47745a;font:800 10px/1.4 system-ui,sans-serif;letter-spacing:.11em;text-transform:uppercase}
+.glossary-card-index{color:#a8b9ab}
+.reading-page .glossary-term h2{font:700 25px/1.2 Georgia,serif;margin:16px 0 9px;padding:0;color:#244e39}
+.glossary-term p{color:#4d6254;line-height:1.67;font-size:14px;margin:0 0 9px}
+.glossary-term .glossary-example{border-top:1px solid #e6ece3;margin:15px 0 0;padding-top:13px;font-size:12px;color:#4a7657}
+.glossary-empty{padding:20px;border:1px dashed #b9cdbf;border-radius:12px;color:#566c5b}
+.glossary-next{display:flex;justify-content:space-between;align-items:center;gap:30px;background:#e6f0e4;border:1px solid #d1e1d0;border-radius:14px;padding:28px;margin:33px 0 18px}
+.reading-page .glossary-next h2{font:700 27px Georgia,serif;margin:7px 0;padding:0}
+.glossary-next p{font-size:14px;color:#546957;line-height:1.65;margin:0}
+.glossary-next-links{display:flex;flex-direction:column;gap:9px;min-width:185px}
+.glossary-sources{font-size:12px;color:#667769}.glossary-sources a{color:#285d43}
+@media(max-width:760px){.glossary-grid{grid-template-columns:1fr}.glossary-next{flex-direction:column;align-items:stretch}.glossary-next-links{flex-direction:row;flex-wrap:wrap;min-width:0}.glossary-term{padding:21px}}
+@media(max-width:430px){.glossary-tools{padding:15px}.glossary-search-controls{align-items:stretch;flex-direction:column}.glossary-search-controls input,.glossary-search-controls button{width:100%}}
+
+/* Watchlist restore control: simple native file input and readable instructions. */
+.watch-import{border-top:1px solid #e5ebdf;margin:13px 0 18px;padding-top:17px}
+.watch-import label{display:block;font:750 13px/1.5 system-ui,sans-serif;color:#2b6044;margin-bottom:8px}
+.watch-import input{max-width:100%;font:13px system-ui,sans-serif;color:#4e6655}
+.watch-import input::file-selector-button{background:#f1f6ef;border:1px solid #c7d8c9;border-radius:7px;padding:9px 12px;min-height:40px;color:#285a40;font-weight:750;cursor:pointer;margin-right:10px}
+.watch-import p{font-size:12px;color:#617363;line-height:1.6;margin:6px 0}
+
+/* A subtle homepage glossary invitation instead of another loud hero. */
+.home-glossary-cta{display:flex;align-items:center;justify-content:space-between;gap:26px;padding:24px 29px;margin-bottom:65px;background:#f2f3e8;border:1px solid #e0e4d6;border-radius:12px}
+.home-page .home-glossary-cta h2{font:700 clamp(25px,3vw,32px)/1.16 Georgia,serif;margin:8px 0;color:#284b39}
+.home-glossary-cta p{max-width:600px;margin:0;color:#586957;font-size:14px;line-height:1.65}
+@media(max-width:700px){.home-glossary-cta{padding:22px;flex-direction:column;align-items:flex-start;margin-bottom:48px}}
+
+/* Research case study links and the fourth tab. */
+.research-page .case-share-btn{background:#fffefa;border:1px solid #c6d9c8;border-radius:8px;min-height:44px;padding:9px 12px;font-size:12px;font-weight:800;color:#2a6749;cursor:pointer;white-space:normal}
+.research-page .case-share-btn:hover{background:#eaf3e8}
+.research-page .case-share-status{font-size:11px;color:#396d4c;max-width:180px}
+.research-page .tabs{gap:10px 22px}
+.research-page .tab{min-height:44px}
+.research-page #notes .research-notes{margin-top:0}
+@media(max-width:900px){.research-page .selector-controls{flex-wrap:wrap;align-items:stretch}.research-page .case-share-status{max-width:none}}
+@media(prefers-reduced-motion:reduce){.glossary-term,.quiz-question label{transition:none}}

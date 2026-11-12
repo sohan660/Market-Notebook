@@ -1,54 +1,70 @@
 # Market Notebook
 
-**Learn what you are buying. Then decide for yourself.**
+**Learn what you're buying. Then decide for yourself.**
 
-Visit: https://sohan660.github.io/Market-Notebook/
+[Visit the website](https://sohan660.github.io/Market-Notebook/)
 
-Market Notebook is a free investing education project made by a student at Franklin & Marshall College. It deliberately avoids live market-data feeds and ongoing SEC filing updates.
+Market Notebook is a small, independent investing education website made by a Franklin & Marshall student. It's free, uses plain HTML/CSS/JavaScript, and intentionally avoids live stock feeds or recurring filing updates.
 
-## Pages
+## Explore
 
-- **Home (index.html):** introduction and a fixed historical S&P 500 returns chart for 2000–2025.
-- **Investing 101 (start.html):** basics, risk, ETF fees, compounding calculators, a quiz and a locally saved learning path.
-- **Investor Principles (investors.html):** evergreen lessons about understanding businesses, diversification, costs and patience; no current investor holdings or Form 13F tracking.
-- **Research Lab (research.html):** fixed historical financial case studies: Apple and Microsoft FY2024–2026, Coca-Cola FY2023–2025. Practice margin calculations, comparisons, a locally saved company-specific checklist, and exportable notes. **Not current market analysis.**
-- **Watchlist (watchlist.html):** up to 25 tickers with editable research notes, CSV export and external quote/chart links. The website checks ticker formatting but does not verify existence or fetch prices.
-- **About (about.html):** creator background and LinkedIn.
+- **Home:** an introduction to the project, bounded historical S&P 500 returns (2000–2025) and an easy way to share the site.
+- **Investing 101:** stocks, ETFs, risk, fees, compounding calculators and a seven-question quiz with explanations, retry, locally saved personal best and a copyable result. The learning path is saved in your browser.
+- **Investor Principles:** evergreen lessons about understanding businesses, costs, risk, and patience. No current 13F tracker.
+- **Research Lab:** fixed historical financial case studies for Apple and Microsoft FY2024–2026 and Coca-Cola FY2023–2025. Compare reports, save per-company checklists, write and export notes, or copy a link to a particular company/tab (for example, [Microsoft notes](https://sohan660.github.io/Market-Notebook/research.html?company=msft&tab=notes)).
+- **Watchlist:** save up to 25 ticker bookmarks and notes, edit them, export a CSV, and import a CSV to restore saved symbols in another browser. External quote links are provided; the website **does not retrieve or verify live prices or listed tickers**.
+- **Glossary:** 29 searchable beginner-friendly financial terms with category filters.
+- **About:** why I made the website, what I've learned so far, and how to get in touch.
 
-## No routine filing/data updates required
+## Built to stay useful without frequent updates
 
-The S&P 500 2000–2025 series is a deliberately bounded historical lesson, not a continuously growing chart. The Research Lab's dated source reports are **permanent historical examples**; newer earnings are not meant to be incorporated. Current quotes belong on the external websites linked from the watchlist. No ongoing 13F holdings, live feeds, or automatic data refresh deadlines exist on this website.
+The historical market series and company-financial examples are deliberately frozen and clearly identified as teaching cases, **not current research or forecasts**. This project has no earnings-feed updater, current investor holdings chart, scheduled source-refresh deadline, account system, or paid API.
 
-Future updates can focus on better learning experiences, design and accessibility rather than copying earnings releases. Readers must check more recent primary sources before making investment decisions.
+## Privacy and saving work
 
-## Browser-only features and privacy
+Watchlists, Research Lab checklists/notes, quiz personal bests and learning-path progress use browser localStorage. This means data is not automatically uploaded, shared, or synced to a different device. Clearing site data can delete it. Export CSV or Markdown files when you want a backup.
 
-Research checklists, research notes, investing lessons progress and watchlists use browser localStorage. Research notes can be exported to Markdown and the watchlist to CSV. There are no accounts or cloud sync; clearing browser data may erase saved work.
+Quiz result sharing copies a short score-and-link message; it **does not publish a leaderboard or send scores to a server**. The glossary search runs locally. No third-party visitor analytics have been enabled, because that would require selecting and configuring a provider with a suitable privacy policy.
 
-## Technical organization
+## Structure
 
-Static HTML/CSS/vanilla JavaScript, deployed from main via GitHub Pages. No build, paid API or user account required.
+| File | Purpose |
+| --- | --- |
+| index.html, start.html, investors.html, research.html, watchlist.html, glossary.html, about.html | Public pages |
+| styles.css, site.css, features.css, research.css, enhancements.css | Visual styles |
+| script.js | Fixed historic charts and calculators |
+| nav.js | Accessible mobile navigation |
+| quiz.js | Question bank, scoring, feedback and score sharing |
+| glossary.js | Local search and filters |
+| research-data.js | Fixed sourced historical financial case studies |
+| research-notes.js | Saved research notes and export |
+| learning-path.js | Lesson progress |
+| watchlist.js | Bookmarks, note editing, CSV import/export |
+| share.js | Homepage copy-link action |
+| scripts/validate-site.mjs | Static checks |
+| scripts/browser-smoke.mjs | Real Chromium browser interaction checks |
+| .github/workflows/validate.yml | Automated static + browser tests on push/PR |
 
-- styles.css + site.css: global design
-- research.css + features.css: Research Lab and newer tools
-- script.js: bounded historical market charts, calculators and quiz
-- research-data.js: **frozen historical** company data with source links
-- research-notes.js: per-company notes
-- learning-path.js: learning progress
-- watchlist.js: editable watchlist and CSV export
-- share.js: homepage copy-link action
-- sitemap.xml + social-preview.png: search discovery and link previews
+## Testing
 
-Maintenance checklist: [docs/MAINTENANCE.md](docs/MAINTENANCE.md).
+Static site checks use Node (no package installation):
 
-Validate the site with: node scripts/validate-site.mjs
+```bash
+node scripts/validate-site.mjs
+```
 
-An automated GitHub Actions workflow runs the same validation on pushes and pull requests.
+To run browser tests locally, install the pinned Playwright version and Chromium, then run the script:
 
-## Sources and disclaimer
+```bash
+npm install --no-save playwright@1.56.1
+npx playwright install chromium
+node scripts/browser-smoke.mjs
+```
 
-Historical examples link to original company reports. Additional learning material: https://www.investor.gov/introduction-investing/investing-basics
+GitHub Actions runs both static validation and browser smoke tests automatically on pushes and pull requests. See [maintenance notes](docs/MAINTENANCE.md) for the small number of things worth checking after a redesign.
 
-This project is independent, educational, not affiliated with the referenced companies, and not personalized investment advice. Market prices fluctuate and past results do not predict future returns.
+## Data and disclaimer
+
+Historical company information links to original source reports. For general learning material, see [Investor.gov](https://www.investor.gov/introduction-investing/investing-basics). The site is independent and educational, is not endorsed by the referenced companies and does not give personalized investment advice. Investments can lose value.
 
 © 2026 Sohan Shrestha.

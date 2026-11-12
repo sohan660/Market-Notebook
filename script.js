@@ -135,24 +135,6 @@
     try { if (!$('#' + p[1][0])) return; p[1].forEach(id => $('#' + id).addEventListener('input', p[0])); p[0](); } catch (e) { console.error(e); }
   });
 
-  /* Quiz */
-  const Q = [
-    ['Which is more likely to hold lots of different companies?', ['One individual stock', 'A broad stock ETF'], 1, 'A broad ETF is a basket. One stock is one company.'],
-    ['Diversification guarantees you will not lose money.', ['True', 'False'], 1, 'It spreads risk around, but a whole market can still fall (the S&P 500 lost 37% in 2008).'],
-    ['Why look at an ETF\u2019s expense ratio?', ['Ongoing costs eat into your returns', 'It predicts the fund\u2019s future return'], 0, 'The fee comes out every year, so it compounds against you. It says nothing about future returns.'],
-    ['Since 2000, in how many calendar years was the S&P 500 down (total return, through 2025)?', ['2', '6', '12'], 1, 'Six: 2000, 2001, 2002, 2008, 2018 and 2022.'],
-    ['A 13F filing shows...', ['Everything a fund owns, in real time', 'Long U.S. stock positions at quarter-end, filed up to 45 days later'], 1, 'It is a delayed snapshot. It leaves out cash, most shorts and a lot more.']
-  ];
-  const qz = $('#quiz');
-  if (qz) {
-    qz.insertAdjacentHTML('afterbegin', Q.map((q, i) => '<fieldset class="q"><legend>' + (i + 1) + '. ' + q[0] + '</legend>' + q[1].map((o, j) => '<label><input type="radio" name="q' + i + '" value="' + j + '">' + o + '</label>').join('') + '<div class="small" id="fb' + i + '"></div></fieldset>').join(''));
-    qz.addEventListener('submit', e => {
-      e.preventDefault(); let s = 0, a = 0;
-      Q.forEach((q, i) => { const c = qz.querySelector('input[name=q' + i + ']:checked'), f = $('#fb' + i); if (!c) { f.className = 'small bad'; f.textContent = 'Choose an answer for this question.'; return; } a++; const ok = +c.value === q[2]; if (ok) s++; f.className = 'small ' + (ok ? 'ok' : 'bad'); f.textContent = (ok ? 'Right. ' : 'Not quite. ') + q[3]; });
-      $('#score').textContent = a === Q.length ? s + ' of ' + Q.length + ' right' : 'Answered ' + a + ' of ' + Q.length + '. Complete the remaining questions.';
-    });
-  }
-
   /* Button feedback for mouse, touch, and keyboard; navigation is never delayed. */
   const tapSelector = '.btn, .home-button, .home-lesson';
   const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
