@@ -49,6 +49,7 @@ assert.ok(research.includes('function loadChecklist()')&&research.includes('loca
 assert.ok(research.includes("const checklistInputs=$$("),'Research checklist must select all five checkboxes');
 assert.ok(research.includes('id="notes" role="tabpanel"')&&research.includes('id="copy-case-link"'),'Notes tab or deep link missing');
 assert.ok(research.includes("query.get('company')")&&research.includes("query.get('tab')"),'Research deep links missing');
+assert.ok(research.includes("const active=$('.tab').find("),'Research case-study copy link must read the active tab list');
 assert.ok(watch.includes("kind==='edit'")&&watch.includes("kind==='save'"),'Watchlist editing missing');
 assert.ok(watch.includes('function parseCSV(source)')&&watch.includes("watch-import-file"),'Watchlist import missing');
 const quiz=await read('quiz.js'),start=await read('start.html'),glossary=await read('glossary.html');

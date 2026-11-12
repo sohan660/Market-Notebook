@@ -148,7 +148,7 @@
     renderCheck();
   });
   $('#copy-case-link').addEventListener('click',async()=>{
-    const active=$('.tab').find(el=>el.getAttribute('aria-selected')==='true')?.dataset.tab||'overview';
+    const active=$$('.tab').find(el=>el.getAttribute('aria-selected')==='true')?.dataset.tab||'overview';
     const link=new URL(window.location.href);
     link.search=new URLSearchParams({company:current,tab:active}).toString();
     link.hash='';
