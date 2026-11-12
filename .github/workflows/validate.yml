@@ -32,7 +32,15 @@ jobs:
           node-version: '22'
       - name: Install Playwright
         run: npm install --no-save --no-audit --no-fund playwright@1.56.1
-      - name: Install Chromium browser
-        run: npx playwright install --with-deps chromium
+      - name: Find Chrome on GitHub runner
+        run: |
+          for binary in google-chrome google-chrome-stable chromium chromium-browser; do
+            if command -v "$binary" >/dev/null 2>&1; then
+              echo "CHROME_BIN=$(command -v "$binary")" >> "$GITHUB_ENV"
+              exit 0
+            fi
+          done
+          echo "No Chrome-compatible browser found on this runner"
+          exit 1
       - name: Test mobile navigation, quiz, notes, CSV and seven layouts
         run: node scripts/browser-smoke.mjs
