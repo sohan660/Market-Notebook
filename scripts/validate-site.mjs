@@ -63,6 +63,9 @@ assert.ok(home.includes('id="home-feedback-heading"')&&home.includes('Share on L
 const about=await read('about.html');
 assert.ok(about.includes('class="about-build-grid"')&&about.includes('id="contact"'),'About project skills and contact sections missing');
 assert.ok(about.includes('HTML, CSS &amp; JavaScript')&&about.includes('GitHub Pages'),'About development details missing');
+assert.ok(about.includes('class="about-background-grid"')&&about.includes('INTERNSHIP EXPERIENCE'),'Education and internship must appear as separate entries');
+assert.ok(about.includes('Business Services Intern')&&about.includes('During my internship'),'LaGuardia role must be identified as an internship');
+assert.ok(!about.includes('class="about-timeline"'),'Old combined education timeline must be removed');
 const polish=await read('refresh.css');
 assert.ok(polish.includes('.home-update-grid')&&polish.includes('.about-build-grid'),'Refined homepage and About styling missing');
 assert.ok(!investors.includes('13F')&&!investors.includes('MARKET_HOLDINGS'),'Investor Principles must remain evergreen');

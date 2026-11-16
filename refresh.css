@@ -84,11 +84,15 @@
 .about-build-grid article>span{font:800 10px/1.4 system-ui,sans-serif;letter-spacing:.1em;color:#63806b}
 .about-page .about-build-grid h3{font:700 22px/1.25 Georgia,serif;margin:17px 0 10px;color:#28543e}
 .about-build-grid p{font:14px/1.65 system-ui,sans-serif;color:#586e5d;margin:0}
-.about-timeline{margin:23px 0 5px;border-left:2px solid #c6d8c6}
-.about-timeline>div{position:relative;padding:0 0 22px 24px}
-.about-timeline>div:before{content:'';position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:#60866b;border:2px solid #f9f7ef}
-.about-timeline span{color:#436a4c;font:800 12px system-ui,sans-serif}
-.about-timeline p{font:14px/1.7 system-ui,sans-serif;color:#526958;margin:7px 0 0}
+.about-background-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0 7px}
+.about-background-card{min-width:0;padding:25px 25px 23px;border:1px solid #dbe5d9;border-radius:12px;background:#fffefa}
+.about-background-card.internship-card{background:#eef4eb;border-color:#cbdcc9}
+.about-entry-type{display:inline-block;color:#3c6c4d;font:800 10px/1.4 system-ui,sans-serif;letter-spacing:.12em}
+.about-background-card .about-entry-date{font:750 13px/1.4 system-ui,sans-serif;color:#527257;margin:15px 0 7px}
+.about-page .about-background-card h3{font:700 25px/1.18 Georgia,serif;color:#28543e;padding:0;margin:0 0 12px}
+.about-background-card p{font:14px/1.7 system-ui,sans-serif;color:#526958;margin:0}
+.about-background-card .about-entry-org{font-weight:750;color:#3e644b;margin:0 0 10px}
+@media(max-width:680px){.about-background-grid{grid-template-columns:1fr}.about-background-card{padding:22px}}
 .about-values{max-width:900px}
 .about-contact{display:flex;align-items:center;justify-content:space-between;gap:30px;background:#e8f0e6;border:1px solid #d5e2d3;border-radius:14px;padding:27px 30px;margin:30px 0 40px;scroll-margin-top:30px}
 .about-contact>div:first-child{max-width:620px}

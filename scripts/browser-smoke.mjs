@@ -149,6 +149,10 @@ try{
   await page.setViewportSize({width:1280,height:900});
   await visit('about.html');
   assert.equal(await page.locator('.about-build-grid article').count(),3);
+  assert.equal(await page.locator('.about-background-card').count(),2);
+  assert.ok((await page.locator('.internship-card').textContent()).includes('Business Services Intern'));
+  assert.ok((await page.locator('.internship-card').textContent()).includes('During my internship'));
+  assert.ok((await page.locator('.about-background-card').first().textContent()).includes('EDUCATION'));
   assert.equal(await page.locator('.about-contact-links a').count(),2);
   await page.screenshot({path:path.join(root,'screenshots','market-notebook-about.png'),animations:'disabled'});
   checkNoErrors('student-made About, feedback and new screenshots');
