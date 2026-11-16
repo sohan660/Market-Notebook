@@ -31,7 +31,7 @@ for(const file of pages){
   const ids=[...markup.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
   assert.equal(ids.length,new Set(ids).size,file+': duplicate IDs');
   assert.equal((html.match(/aria-current="page"/g)||[]).length,1,file+': exactly one active nav link needed');
-  for(const pattern of ['href="site.css"','href="enhancements.css"','src="nav.js"','class="mobile-menu-toggle"','id="site-links"','property="og:image"','name="twitter:card"','href="watchlist.html"','href="glossary.html"','Investor Principles</a>'])
+  for(const pattern of ['href="site.css"','href="enhancements.css"','href="refresh.css"','src="nav.js"','class="mobile-menu-toggle"','id="site-links"','property="og:image"','name="twitter:card"','href="watchlist.html"','href="glossary.html"','Investor Principles</a>','class="footer-small-actions"'])
     assert.ok(html.includes(pattern),file+': missing '+pattern);
   assert.ok(!html.includes('data-status.js')&&!html.includes('investor-data.js'),file+': obsolete live-maintenance script linked');
   for(const m of markup.matchAll(/<(?:a|link|script|img)\b[^>]*?\b(?:href|src)="([^"]+)"/g)){
@@ -58,6 +58,13 @@ assert.ok(quiz.includes('quiz-share')&&quiz.includes('quiz-retake'),'Quiz share/
 assert.equal((glossary.match(/class="glossary-term"/g)||[]).length,29,'Glossary term count changed');
 assert.ok(glossary.includes('src="glossary.js"'),'Glossary search missing');
 assert.ok(home.includes('id="copy-site-link"')&&home.includes('src="share.js"'),'Share link missing');
+assert.ok(home.includes('id="home-updated-heading"')&&home.includes('class="home-update-grid"'),'New project feature cards missing');
+assert.ok(home.includes('id="home-feedback-heading"')&&home.includes('Share on LinkedIn'),'Homepage feedback/sharing links missing');
+const about=await read('about.html');
+assert.ok(about.includes('class="about-build-grid"')&&about.includes('id="contact"'),'About project skills and contact sections missing');
+assert.ok(about.includes('HTML, CSS &amp; JavaScript')&&about.includes('GitHub Pages'),'About development details missing');
+const polish=await read('refresh.css');
+assert.ok(polish.includes('.home-update-grid')&&polish.includes('.about-build-grid'),'Refined homepage and About styling missing');
 assert.ok(!investors.includes('13F')&&!investors.includes('MARKET_HOLDINGS'),'Investor Principles must remain evergreen');
 const sitemap=await read('sitemap.xml');
 assert.equal((sitemap.match(/<url>/g)||[]).length,pages.length,'Sitemap page count mismatch');

@@ -37,6 +37,9 @@ const checkNoErrors=label=>{
 
 try{
   await visit('');
+  assert.equal(await page.locator('.home-update-card').count(),3);
+  assert.equal(await page.locator('.home-feedback-actions a').count(),2);
+  assert.ok((await page.locator('.home-release-stamp').textContent()).includes('Updated project'));
   assert.equal(await page.locator('.mobile-menu-toggle').isVisible(),true);
   assert.equal(await page.locator('.site-links').isVisible(),false);
   await page.locator('.mobile-menu-toggle').click();
@@ -134,6 +137,21 @@ try{
   assert.equal(await page.locator('.mobile-menu-toggle').isVisible(),false);
   assert.equal(await page.locator('.site-links').isVisible(),true);
   checkNoErrors('seven pages at mobile widths and desktop navigation');
+
+  await fs.mkdir(path.join(root,'screenshots'),{recursive:true});
+  await page.setViewportSize({width:1440,height:900});
+  await visit('');
+  await page.screenshot({path:path.join(root,'screenshots','market-notebook-home-desktop.png'),animations:'disabled'});
+  await page.locator('#explore').screenshot({path:path.join(root,'screenshots','market-notebook-features.png'),animations:'disabled'});
+  await page.setViewportSize({width:390,height:844});
+  await visit('');
+  await page.screenshot({path:path.join(root,'screenshots','market-notebook-home-mobile.png'),animations:'disabled'});
+  await page.setViewportSize({width:1280,height:900});
+  await visit('about.html');
+  assert.equal(await page.locator('.about-build-grid article').count(),3);
+  assert.equal(await page.locator('.about-contact-links a').count(),2);
+  await page.screenshot({path:path.join(root,'screenshots','market-notebook-about.png'),animations:'disabled'});
+  checkNoErrors('student-made About, feedback and new screenshots');
   console.log('Browser smoke tests passed.');
 }finally{
   await browser.close();

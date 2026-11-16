@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#faf7f0">
   <title>Market Notebook | Learn Investing Without the Hype</title>
-  <meta name="description" content="A free investing guide made by a college student. Learn stocks, ETFs, fees and market history with real charts, interactive calculators and investor research.">
+  <meta name="description" content="A free, student-built investing guide with a quick quiz, plain-English glossary, calculators and historical company research. Learn the basics without stock tips or hype.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Market Notebook">
   <meta property="og:title" content="Market Notebook | Investing for College Students">
-  <meta property="og:description" content="Stocks, ETFs, market history and lessons from well-known investors. No hype—just the basics and the numbers behind them.">
+  <meta property="og:description" content="A college freshman’s investing project: learn the basics, take the quiz, explore company case studies and build your own watchlist. Free, no hype.">
   <meta property="og:url" content="https://sohan660.github.io/Market-Notebook/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://sohan660.github.io/Market-Notebook/">
@@ -22,8 +23,10 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://sohan660.github.io/Market-Notebook/social-preview.png">
+<meta property="og:image:alt" content="Market Notebook, a beginner investing guide built by a college student">
 <script defer src="nav.js"></script>
 <link rel="stylesheet" href="enhancements.css">
+<link rel="stylesheet" href="refresh.css">
 </head>
 <body class="home-page"><a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header"><nav class="site-nav" aria-label="Main navigation"><a class="site-brand" href="index.html">Market Notebook<span>Learn investing, thoughtfully.</span></a><button type="button" class="mobile-menu-toggle" aria-controls="site-links" aria-expanded="false" aria-label="Open navigation" hidden><span class="menu-label">Menu</span><span aria-hidden="true">☰</span></button><div class="site-links" id="site-links"><a href="index.html" aria-current="page">Home</a><a href="start.html">Investing 101</a><a href="investors.html">Investor Principles</a><a href="research.html">Research Lab</a><a href="watchlist.html">Watchlist</a><a href="glossary.html">Glossary</a><a href="about.html">About me</a><a href="https://www.linkedin.com/in/sohvn/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div></nav></header>
@@ -32,16 +35,18 @@
 
   <section class="home-hero home-container" aria-labelledby="home-title">
     <div class="home-hero-copy">
-      <p class="home-kicker"><span class="home-kicker-dot" aria-hidden="true"></span> THE STOCK MARKET, EXPLAINED FOR STUDENTS</p>
+      <p class="home-kicker"><span class="home-kicker-dot" aria-hidden="true"></span> A STUDENT-BUILT GUIDE TO INVESTING</p>
+      <div class="home-release-stamp"><span class="release-dot" aria-hidden="true"></span> Updated project <span aria-hidden="true">/</span> Made to be shared</div>
       <h1 id="home-title">Learn what you're buying. <em>Then decide for yourself.</em></h1>
-      <p class="home-lead">New to stocks and ETFs? I made Market Notebook to explain what I was learning about investing, with historical market data and sources you can check along the way.</p>
+      <p class="home-lead">I started Market Notebook because I wanted a simpler way to learn investing and explain it to friends. No stock picks or big promises—just lessons, real historical examples and tools you can actually use.</p>
       <div class="home-actions">
         <a class="home-button home-button-primary" href="start.html">Start learning <span aria-hidden="true">↗</span></a>
-        <a class="home-button home-button-secondary" href="investors.html">Explore investor principles <span aria-hidden="true">→</span></a>
+        <a class="home-button home-button-secondary" href="start.html#quiz-section">Try the 7-question quiz <span aria-hidden="true">→</span></a>
       </div>
-      <p class="home-byline">Made by Sohan Shrestha · Franklin &amp; Marshall College</p>
+      <p class="home-byline">Made by Sohan Shrestha <span aria-hidden="true">·</span> First-year student at Franklin &amp; Marshall College</p>
     </div>
     <div class="home-hero-art">
+      <div class="home-visual-note" aria-hidden="true"><span>from my notebook</span><strong>learn it, then explain it.</strong></div>
       <figure class="home-visual">
         <img src="homepage-graphic.svg" width="720" height="570" alt="An illustrated chart showing real S&amp;P 500 annual returns for 2019 through 2025. Most years are green, but 2022 is orange at negative 18.1 percent." fetchpriority="high">
         <figcaption>Historical S&amp;P 500 annual returns, including dividends. See the full interactive chart below.</figcaption>
@@ -51,8 +56,39 @@
 
   <section class="home-intro-band" aria-label="About the guide">
     <div class="home-container home-band-inner">
-      <span>Free to read</span><span>Beginner-friendly lessons</span><span>Historical data with sources</span><span>No stock tips or promises</span>
+      <span>Student made</span><span>Free to explore</span><span>Interactive lessons</span><span>No stock tips or promises</span>
     </div>
+  </section>
+
+  <section class="home-container home-updated" id="explore" aria-labelledby="home-updated-heading">
+    <div class="home-updated-top">
+      <div><span class="home-overline">WHAT I'VE BEEN WORKING ON</span><h2 id="home-updated-heading">A few things worth trying.</h2></div>
+      <p>I've been building this one feature at a time, mostly by asking what would have helped me when I was starting out.</p>
+    </div>
+    <div class="home-update-grid">
+      <a class="home-update-card" href="start.html#quiz-section">
+        <span class="update-icon update-icon-amber" aria-hidden="true">01</span>
+        <span class="update-tag">TEST YOURSELF</span>
+        <h3>Take the quick quiz.</h3>
+        <p>Seven questions, explanations, and a score you can share with a friend.</p>
+        <span class="update-link">Give it a try <span aria-hidden="true">↗</span></span>
+      </a>
+      <a class="home-update-card" href="glossary.html">
+        <span class="update-icon" aria-hidden="true">02</span>
+        <span class="update-tag">LOOK IT UP</span>
+        <h3>Learn the language.</h3>
+        <p>A searchable glossary for the finance words that confused me at first.</p>
+        <span class="update-link">Open the glossary <span aria-hidden="true">↗</span></span>
+      </a>
+      <a class="home-update-card" href="research.html?company=aapl&amp;tab=notes">
+        <span class="update-icon update-icon-rust" aria-hidden="true">03</span>
+        <span class="update-tag">DO YOUR OWN RESEARCH</span>
+        <h3>Write down your thinking.</h3>
+        <p>Explore historical company examples, keep notes and make a checklist.</p>
+        <span class="update-link">Try the Research Lab <span aria-hidden="true">↗</span></span>
+      </a>
+    </div>
+    <p class="home-update-foot">All free. No account required. Your watchlist, quiz progress and research notes stay in your browser.</p>
   </section>
 
   <section class="home-container home-learn" aria-labelledby="home-learn-title">
@@ -139,16 +175,20 @@
       <span class="home-overline">ABOUT THIS PROJECT</span>
       <h2>I'm learning too.</h2>
       <p>I'm Sohan, a first-year student at Franklin &amp; Marshall College interested in finance and wealth management. I built this site because I wanted a place to send a friend who asked how investing works.</p>
-      <p>It's a study guide, not a list of stocks you should buy.</p>
+      <p>This is still a work in progress, and I'm learning as I build it.</p>
       <a href="about.html" class="home-inline-link">A little more about me <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
+  <section class="home-container home-feedback" aria-labelledby="home-feedback-heading">
+    <div class="home-feedback-copy"><span class="home-overline">HELP MAKE IT BETTER</span><h2 id="home-feedback-heading">See something I could improve?</h2><p>If a lesson is confusing, a link breaks or you have an idea for the next version, I want to hear it.</p></div>
+    <div class="home-feedback-actions"><a class="feature-btn primary" href="https://github.com/sohan660/Market-Notebook/issues/new?title=Website%20feedback%3A%20&amp;body=Which%20page%20were%20you%20on%3F%0A%0AWhat%20should%20I%20fix%20or%20improve%3F%0A%0A" target="_blank" rel="noopener noreferrer">Suggest a change ↗</a><a href="about.html#contact" class="home-inline-link">Or connect with me <span aria-hidden="true">→</span></a><small>Suggestions open a public GitHub issue (GitHub account required).</small></div>
+  </section>
 <section class="home-container share-invite" aria-labelledby="share-site-heading">
   <div><span class="home-overline">GOOD THINGS ARE BETTER SHARED</span><h2 id="share-site-heading">Know someone trying to understand investing?</h2><p>Send them Market Notebook. It is free to read, with beginner lessons, worked examples and no stock tips.</p></div>
-  <div class="share-actions"><button type="button" class="feature-btn primary" id="copy-site-link">Copy website link</button><a class="feature-btn" href="mailto:?subject=Market%20Notebook%20-%20free%20investing%20guide&amp;body=I%20thought%20you%20might%20like%20this%20beginner-friendly%20investing%20guide%3A%20https%3A%2F%2Fsohan660.github.io%2FMarket-Notebook%2F">Share by email ↗</a><p role="status" aria-live="polite" id="share-status">No account needed.</p></div>
+  <div class="share-actions"><button type="button" class="feature-btn primary" id="copy-site-link">Copy website link</button><a class="feature-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsohan660.github.io%2FMarket-Notebook%2F" target="_blank" rel="noopener noreferrer">Share on LinkedIn ↗</a><p role="status" aria-live="polite" id="share-status">Copy the link or share with your network.</p></div>
 </section>
 </main>
-<footer class="site-footer"><div><a class="footer-brand" href="index.html">Market Notebook</a><p>Independent investing education by Sohan Shrestha.<br>Historical results and calculators are not promises of future returns.</p><span>© 2026 Sohan Shrestha</span></div><a href="#main-content">Back to top ↑</a></footer>
+<footer class="site-footer"><div><a class="footer-brand" href="index.html">Market Notebook</a><p>Independent investing education by Sohan Shrestha.<br>Historical results and calculators are not promises of future returns.</p><span>© 2026 Sohan Shrestha</span></div><div class="footer-small-actions"><a href="https://github.com/sohan660/Market-Notebook/issues/new?title=Website%20feedback%3A%20&amp;body=Which%20page%20were%20you%20on%3F%0A%0AWhat%20should%20I%20fix%20or%20improve%3F%0A%0A" target="_blank" rel="noopener noreferrer">Send feedback ↗</a><a href="#main-content">Back to top ↑</a></div></footer>
 </body>
 </html>

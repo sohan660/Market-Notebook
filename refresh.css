@@ -1,0 +1,142 @@
+/* Market Notebook / student-led refresh.
+   A little more polish, still intentionally simple: paper, ink, and a few warm accents. */
+:root { --notebook-forest:#204635; --notebook-cream:#faf7f0; --notebook-sage:#e9f0e6; --notebook-tan:#e9d9ba; }
+.site-header{position:relative;z-index:9;box-shadow:0 3px 20px rgba(34,58,44,.035)}
+.site-brand{letter-spacing:-.04em}
+.site-brand span{letter-spacing:.035em}
+.site-links a{border-radius:7px;transition:color .15s ease,background-color .15s ease}
+@media(min-width:1081px){
+  .site-links a{padding-inline:6px}
+  .site-links a:hover{background:#edf3eb}
+  .site-links a[aria-current=page]{text-decoration:none;box-shadow:inset 0 -2px 0 #ba9960}
+}
+
+/* A human introduction, not a sales landing page. */
+.home-page .home-hero{position:relative;isolation:isolate;padding-top:69px;padding-bottom:75px}
+.home-page .home-hero:after{content:'';position:absolute;inset:6% -12% 0 41%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 57% 44%,rgba(209,226,209,.50),transparent 66%)}
+.home-release-stamp{display:inline-flex;align-items:center;gap:9px;background:#fffaf0;border:1px solid #e5d7bd;border-radius:99px;padding:8px 12px;color:#6e5d3f;font:700 11px/1.3 system-ui,sans-serif;letter-spacing:.025em;margin-bottom:20px}
+.release-dot{height:7px;width:7px;border-radius:50%;background:#b78a47;box-shadow:0 0 0 3px #efdfc2}
+.home-page .home-hero h1{letter-spacing:-.05em}
+.home-page .home-hero h1 em{color:#35674a}
+.home-byline{border-left:3px solid #b89658;padding-left:13px}
+.home-visual{filter:drop-shadow(0 16px 26px rgba(30,52,37,.08))}
+.home-visual-note{position:absolute;z-index:3;right:-12px;top:-32px;background:#f7e9c8;color:#675130;border:1px solid #e8d4a9;border-radius:4px;padding:14px 19px 16px;max-width:188px;box-shadow:0 10px 25px rgba(60,50,30,.13);transform:rotate(6deg);font-family:Georgia,serif}
+.home-visual-note:before{content:'';position:absolute;top:-10px;left:43%;width:54px;height:19px;transform:rotate(-3deg);background:rgba(231,218,176,.85);border:1px solid rgba(202,176,135,.3)}
+.home-visual-note span{display:block;text-transform:uppercase;letter-spacing:.12em;font:750 10px/1.3 system-ui,sans-serif;margin-bottom:6px}
+.home-visual-note strong{font-size:16px;line-height:1.3;font-weight:600}
+.home-page .home-button-primary{background:#244f3b;border-color:#244f3b}
+.home-page .home-button-primary:hover{background:#387658;border-color:#387658}
+.home-page .home-button-secondary:hover{background:#fffefa}
+.home-page .home-visual figcaption{margin-top:17px}
+
+/* Feature strip: feel like pages in a notebook, not app-store tiles. */
+.home-updated{padding-top:74px;padding-bottom:13px}
+.home-updated-top{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:25px}
+.home-updated-top h2{font:700 clamp(30px,3.4vw,42px)/1.15 Georgia,serif;letter-spacing:-.035em;margin:0;color:#284737}
+.home-updated-top>p{max-width:335px;margin:0 0 3px;color:#5f7164;font:14px/1.7 system-ui,sans-serif}
+.home-update-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.home-update-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:25px 24px 23px;background:#fffefa;border:1px solid #dfe4d9;border-radius:12px;color:#294131;text-decoration:none;box-shadow:0 6px 19px rgba(31,55,38,.03);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.home-update-card:hover{transform:translateY(-3px);border-color:#acc7b2;box-shadow:0 12px 25px rgba(31,55,38,.07);color:#294131}
+.update-icon{display:grid;place-items:center;width:43px;height:43px;border-radius:10px;background:#dfeee0;color:#326448;font:800 13px system-ui,sans-serif;margin:0 0 25px;letter-spacing:-.025em}
+.update-icon-amber{background:#f7ecd4;color:#946a27}.update-icon-rust{background:#f9e7e0;color:#a35634}
+.update-tag{font:800 10px/1.4 system-ui,sans-serif;letter-spacing:.12em;color:#6a8570}
+.home-page .home-update-card h3{font:700 25px/1.22 Georgia,serif;letter-spacing:-.025em;color:#294b39;margin:8px 0 11px}
+.home-update-card p{font:14px/1.65 system-ui,sans-serif;color:#566a5c;margin:0 0 23px}
+.home-update-card .update-link{margin-top:auto;font:800 12px/1.5 system-ui,sans-serif;color:#276346}
+.home-update-foot{color:#64746a;font-size:12px;line-height:1.55;margin:16px 0 0}
+.home-page .home-learn{padding-top:61px}
+.home-page .home-lesson{box-shadow:0 6px 22px rgba(38,53,39,.03)}
+.home-page .home-lesson:hover{border-color:#8db198}
+.home-page .home-glossary-cta{box-shadow:0 8px 22px rgba(37,59,42,.025)}
+
+/* Feedback is easy to find, and the limitations of public GitHub Issues are clear. */
+.home-feedback{display:flex;align-items:center;justify-content:space-between;gap:32px;padding-top:26px;padding-bottom:32px;border-top:1px dashed #c5cfbf}
+.home-feedback-copy{max-width:680px}
+.home-feedback h2{font:700 clamp(27px,3vw,35px)/1.18 Georgia,serif;letter-spacing:-.035em;color:#254b38;margin:0 0 10px}
+.home-feedback p{font:14px/1.7 system-ui,sans-serif;color:#5c6c61;margin:0}
+.home-feedback-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:215px}
+.home-feedback-actions small{font:11px/1.5 system-ui,sans-serif;max-width:245px;color:#708073}
+.home-feedback-actions .home-inline-link{font-size:13px}
+.home-page .home-bottom{padding-bottom:71px}
+.home-page .share-invite{margin-top:15px}
+
+/* An approachable personal page: project story + an actual skills section. */
+.about-page main.about-wrap{max-width:1100px;padding-top:52px}
+.about-page h1,.about-page h2,.about-page h3{color:#264937}
+.about-hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(250px,.65fr);gap:clamp(35px,6vw,88px);align-items:center;padding-bottom:55px}
+.about-hero-copy{min-width:0}
+.about-page .about-hero h1{font:700 clamp(43px,5vw,63px)/1.07 Georgia,serif;letter-spacing:-.045em;margin:8px 0 20px;padding:0}
+.about-hero p:not(.eyebrow){max-width:670px;line-height:1.75;color:#4e6556;font-size:15px}
+.about-page .about-hero .lead{font-size:19px;color:#2f5441;font-weight:500}
+.about-hero-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.about-desk-note{position:relative;transform:rotate(3deg);background:#f6e7bf;padding:36px 30px;border:1px solid #e9d5a8;border-radius:6px;box-shadow:12px 18px 0 #e8e7d8,0 20px 34px rgba(35,49,38,.12);max-width:360px;justify-self:center}
+.note-pin{position:absolute;top:14px;left:50%;width:12px;height:12px;background:#ba8950;border-radius:50%;box-shadow:0 2px 0 #86603a,0 2px 5px rgba(31,48,39,.2)}
+.about-note-label{font:800 10px system-ui,sans-serif;letter-spacing:.13em;color:#84633b}
+.about-page .about-desk-note h2{font:700 38px/1.16 Georgia,serif;letter-spacing:-.04em;margin:18px 0;color:#5b4e32;padding:0}
+.about-desk-note p{font:14px/1.55 Georgia,serif;color:#6b5d42}
+.about-signed{display:block;text-align:right;margin-top:19px;color:#815f3b;font:italic 17px Georgia,serif}
+.about-approach,.about-background,.about-values{padding-top:42px;padding-bottom:30px;border-top:1px solid #dfe5dc}
+.about-section-heading{max-width:700px}
+.about-page .about-section-heading h2,.about-page .about-background h2,.about-page .about-values h2,.about-page .about-contact h2{font:700 clamp(27px,3vw,35px)/1.22 Georgia,serif;letter-spacing:-.034em;margin:8px 0 13px;padding:0}
+.about-section-heading>p,.about-values>p{font:15px/1.75 system-ui,sans-serif;color:#5b705e}
+.about-build-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:27px 0 9px}
+.about-build-grid article{background:#fffefa;border:1px solid #dee6dd;border-radius:12px;padding:22px 22px 23px}
+.about-build-grid article>span{font:800 10px/1.4 system-ui,sans-serif;letter-spacing:.1em;color:#63806b}
+.about-page .about-build-grid h3{font:700 22px/1.25 Georgia,serif;margin:17px 0 10px;color:#28543e}
+.about-build-grid p{font:14px/1.65 system-ui,sans-serif;color:#586e5d;margin:0}
+.about-timeline{margin:23px 0 5px;border-left:2px solid #c6d8c6}
+.about-timeline>div{position:relative;padding:0 0 22px 24px}
+.about-timeline>div:before{content:'';position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:#60866b;border:2px solid #f9f7ef}
+.about-timeline span{color:#436a4c;font:800 12px system-ui,sans-serif}
+.about-timeline p{font:14px/1.7 system-ui,sans-serif;color:#526958;margin:7px 0 0}
+.about-values{max-width:900px}
+.about-contact{display:flex;align-items:center;justify-content:space-between;gap:30px;background:#e8f0e6;border:1px solid #d5e2d3;border-radius:14px;padding:27px 30px;margin:30px 0 40px;scroll-margin-top:30px}
+.about-contact>div:first-child{max-width:620px}
+.about-contact p{font:14px/1.7 system-ui,sans-serif;color:#516a57;margin:0}
+.about-contact-links{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:220px}
+.about-contact-links small{color:#667a69;font:11px/1.5 system-ui,sans-serif}
+.about-page .about-hero-links a,.about-page .about-contact-links a{text-decoration:none}
+.about-page .site-footer{margin-top:25px}
+
+@media(max-width:900px){
+  .home-updated-top{align-items:start;flex-direction:column;gap:8px}
+  .home-updated-top>p{max-width:650px}
+  .about-hero{grid-template-columns:minmax(0,1fr) minmax(220px,.55fr);gap:28px}
+  .about-build-grid{grid-template-columns:1fr 1fr}
+  .about-build-grid article:last-child{grid-column:1/-1}
+}
+@media(max-width:760px){
+  .home-page .home-hero{padding-top:46px;padding-bottom:55px}
+  .home-page .home-hero:after{display:none}
+  .home-visual-note{top:-10px;right:0;padding:11px 13px;max-width:150px}
+  .home-visual-note strong{font-size:13px}
+  .home-update-grid{grid-template-columns:1fr}
+  .home-updated{padding-top:54px;padding-bottom:0}
+  .home-update-card{padding:23px;min-height:0}
+  .home-update-card .update-icon{margin-bottom:14px}
+  .home-page .home-learn{padding-top:57px}
+  .home-feedback{align-items:stretch;flex-direction:column;gap:20px}
+  .home-feedback-actions{min-width:0}
+  .about-page main.about-wrap{padding-top:36px}
+  .about-hero{grid-template-columns:1fr;padding-bottom:44px;gap:38px}
+  .about-desk-note{max-width:320px;width:calc(100% - 32px);transform:rotate(2deg);justify-self:center}
+  .about-build-grid{grid-template-columns:1fr}
+  .about-build-grid article:last-child{grid-column:auto}
+  .about-contact{align-items:stretch;flex-direction:column;padding:23px}
+  .about-contact-links{min-width:0}
+}
+@media(max-width:480px){
+  .home-release-stamp{font-size:10px;padding:7px 10px;flex-wrap:wrap}
+  .home-visual-note{display:none}
+  .home-update-card{padding:21px}
+  .about-page .about-hero h1{font-size:42px}
+  .about-hero-links{flex-direction:column;align-items:stretch}
+  .about-desk-note{padding:26px 24px}
+}
+@media(prefers-reduced-motion:reduce){.home-update-card{transition:none}.home-update-card:hover{transform:none}}
+
+/* A clear, consistent feedback link on every page. */
+.site-footer .footer-small-actions{display:flex;flex-direction:column;gap:10px;align-items:flex-end;flex:none}
+.site-footer .footer-small-actions a{display:inline-flex;align-items:center;min-height:32px;font:750 12px/1.45 system-ui,sans-serif;text-decoration:none;color:#37684c}
+.site-footer .footer-small-actions a:hover{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:600px){.site-footer .footer-small-actions{align-items:flex-start;flex-direction:row;flex-wrap:wrap;column-gap:20px}}

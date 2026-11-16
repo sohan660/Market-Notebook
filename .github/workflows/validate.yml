@@ -44,3 +44,11 @@ jobs:
           exit 1
       - name: Test mobile navigation, quiz, notes, CSV and seven layouts
         run: node scripts/browser-smoke.mjs
+      - name: Save screenshots for sharing
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: market-notebook-preview
+          path: screenshots/*.png
+          if-no-files-found: error
+          retention-days: 30

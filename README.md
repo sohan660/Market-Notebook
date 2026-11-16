@@ -16,6 +16,25 @@ Market Notebook is a small, independent investing education website made by a Fr
 - **Glossary:** 29 searchable beginner-friendly financial terms with category filters.
 - **About:** why I made the website, what I've learned so far, and how to get in touch.
 
+## November 2026 design refresh
+
+This version keeps Market Notebook small and personal, with a more readable homepage, updated student-made typography and paper-like accents, and a clear showcase for the quiz, glossary, and Research Lab.
+
+The **About** page now explains the project goals, HTML/CSS/JavaScript choices, historical research, and GitHub Pages testing process. Feedback is available in the footer of every public page and on the homepage/Contact section. Suggestions go to public GitHub Issues (a GitHub login is required); LinkedIn is an alternate contact option. There is no data-collection form or visitor-tracking script.
+
+The homepage now has clearer Open Graph sharing copy for previews on LinkedIn and other platforms. The existing social card image is still `social-preview.png`.
+
+### LinkedIn-ready screenshots
+
+On every successful GitHub Actions browser test, the `market-notebook-preview` artifact provides four PNG screenshots:
+
+- `market-notebook-home-desktop.png` — first screen of the homepage at desktop size.
+- `market-notebook-features.png` — the three featured learning tools.
+- `market-notebook-home-mobile.png` — the top of the homepage on mobile.
+- `market-notebook-about.png` — the student project story.
+
+Open the latest successful **Validate website** workflow under GitHub Actions, download the `market-notebook-preview` artifact ZIP, and choose the images you want to use in a social post. These screenshots show the website and are not endorsements or performance claims.
+
 ## Built to stay useful without frequent updates
 
 The historical market series and company-financial examples are deliberately frozen and clearly identified as teaching cases, **not current research or forecasts**. This project has no earnings-feed updater, current investor holdings chart, scheduled source-refresh deadline, account system, or paid API.
@@ -31,7 +50,7 @@ Quiz result sharing copies a short score-and-link message; it **does not publish
 | File | Purpose |
 | --- | --- |
 | index.html, start.html, investors.html, research.html, watchlist.html, glossary.html, about.html | Public pages |
-| styles.css, site.css, features.css, research.css, enhancements.css | Visual styles |
+| styles.css, site.css, features.css, research.css, enhancements.css, refresh.css | Visual styles |
 | script.js | Fixed historic charts and calculators |
 | nav.js | Accessible mobile navigation |
 | quiz.js | Question bank, scoring, feedback and score sharing |
