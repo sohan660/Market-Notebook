@@ -49,17 +49,6 @@
 .home-page .home-lesson:hover{border-color:#8db198}
 .home-page .home-glossary-cta{box-shadow:0 8px 22px rgba(37,59,42,.025)}
 
-/* Feedback is easy to find, and the limitations of public GitHub Issues are clear. */
-.home-feedback{display:flex;align-items:center;justify-content:space-between;gap:32px;padding-top:26px;padding-bottom:32px;border-top:1px dashed #c5cfbf}
-.home-feedback-copy{max-width:680px}
-.home-feedback h2{font:700 clamp(27px,3vw,35px)/1.18 Georgia,serif;letter-spacing:-.035em;color:#254b38;margin:0 0 10px}
-.home-feedback p{font:14px/1.7 system-ui,sans-serif;color:#5c6c61;margin:0}
-.home-feedback-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:215px}
-.home-feedback-actions small{font:11px/1.5 system-ui,sans-serif;max-width:245px;color:#708073}
-.home-feedback-actions .home-inline-link{font-size:13px}
-.home-page .home-bottom{padding-bottom:71px}
-.home-page .share-invite{margin-top:15px}
-
 /* An approachable personal page: project story + an actual skills section. */
 .about-page main.about-wrap{max-width:1100px;padding-top:52px}
 .about-page h1,.about-page h2,.about-page h3{color:#264937}
@@ -127,8 +116,6 @@
   .home-update-card{padding:23px;min-height:0}
   .home-update-card .update-icon{margin-bottom:14px}
   .home-page .home-learn{padding-top:57px}
-  .home-feedback{align-items:stretch;flex-direction:column;gap:20px}
-  .home-feedback-actions{min-width:0}
   .about-page main.about-wrap{padding-top:36px}
   .about-hero{grid-template-columns:1fr;padding-bottom:44px;gap:38px}
   .about-desk-note{max-width:320px;width:calc(100% - 32px);transform:rotate(2deg);justify-self:center}
@@ -147,8 +134,3 @@
 }
 @media(prefers-reduced-motion:reduce){.home-update-card{transition:none}.home-update-card:hover{transform:none}}
 
-/* A clear, consistent feedback link on every page. */
-.site-footer .footer-small-actions{display:flex;flex-direction:column;gap:10px;align-items:flex-end;flex:none}
-.site-footer .footer-small-actions a{display:inline-flex;align-items:center;min-height:32px;font:750 12px/1.45 system-ui,sans-serif;text-decoration:none;color:#37684c}
-.site-footer .footer-small-actions a:hover{text-decoration:underline;text-underline-offset:3px}
-@media(max-width:600px){.site-footer .footer-small-actions{align-items:flex-start;flex-direction:row;flex-wrap:wrap;column-gap:20px}}

@@ -20,7 +20,7 @@ Market Notebook is a small, independent investing education website made by a Fr
 
 This version keeps Market Notebook small and personal, with a more readable homepage, updated student-made typography and paper-like accents, and a clear showcase for the quiz, glossary, and Research Lab.
 
-The **About** page now explains the project goals, HTML/CSS/JavaScript choices, historical research, and GitHub Pages testing process. Feedback is available in the footer of every public page and on the homepage/Contact section. Suggestions go to public GitHub Issues (a GitHub login is required); LinkedIn is an alternate contact option. There is no data-collection form or visitor-tracking script.
+The **About** page now explains the project goals, HTML/CSS/JavaScript choices, historical research, and GitHub Pages testing process. Visitors can contact the student creator through LinkedIn. There is no website-change suggestion form, data-collection form, or visitor-tracking script.
 
 The homepage now has clearer Open Graph sharing copy for previews on LinkedIn and other platforms. The existing social card image is still `social-preview.png`.
 

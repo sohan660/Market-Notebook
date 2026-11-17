@@ -31,7 +31,7 @@ for(const file of pages){
   const ids=[...markup.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
   assert.equal(ids.length,new Set(ids).size,file+': duplicate IDs');
   assert.equal((html.match(/aria-current="page"/g)||[]).length,1,file+': exactly one active nav link needed');
-  for(const pattern of ['href="site.css"','href="enhancements.css"','href="refresh.css"','src="nav.js"','class="mobile-menu-toggle"','id="site-links"','property="og:image"','name="twitter:card"','href="watchlist.html"','href="glossary.html"','Investor Principles</a>','class="footer-small-actions"'])
+  for(const pattern of ['href="site.css"','href="enhancements.css"','href="refresh.css"','src="nav.js"','class="mobile-menu-toggle"','id="site-links"','property="og:image"','name="twitter:card"','href="watchlist.html"','href="glossary.html"','Investor Principles</a>'])
     assert.ok(html.includes(pattern),file+': missing '+pattern);
   assert.ok(!html.includes('data-status.js')&&!html.includes('investor-data.js'),file+': obsolete live-maintenance script linked');
   for(const m of markup.matchAll(/<(?:a|link|script|img)\b[^>]*?\b(?:href|src)="([^"]+)"/g)){
@@ -59,10 +59,12 @@ assert.equal((glossary.match(/class="glossary-term"/g)||[]).length,29,'Glossary 
 assert.ok(glossary.includes('src="glossary.js"'),'Glossary search missing');
 assert.ok(home.includes('id="copy-site-link"')&&home.includes('src="share.js"'),'Share link missing');
 assert.ok(home.includes('id="home-updated-heading"')&&home.includes('class="home-update-grid"'),'New project feature cards missing');
-assert.ok(home.includes('id="home-feedback-heading"')&&home.includes('Share on LinkedIn'),'Homepage feedback/sharing links missing');
+assert.ok(home.includes('Share on LinkedIn'),'Homepage LinkedIn sharing link missing');
+assert.ok(!home.includes('home-feedback')&&!home.includes('issues/new'),'Homepage change suggestion controls must be absent');
 const about=await read('about.html');
 assert.ok(about.includes('class="about-build-grid"')&&about.includes('id="contact"'),'About project skills and contact sections missing');
 assert.ok(about.includes('HTML, CSS &amp; JavaScript')&&about.includes('GitHub Pages'),'About development details missing');
+assert.ok(!about.includes('issues/new')&&!about.includes('Suggest a website change'),'About change suggestion controls must be absent');
 assert.ok(about.includes('class="about-timeline"')&&about.includes('aria-label="Education and internship experience"'),'Original education/experience timeline missing');
 assert.ok(about.includes('SUMMER INTERNSHIP · 2025')&&about.includes('During my summer internship'),'LaGuardia experience must be clearly labeled as a summer internship');
 assert.ok(about.includes('LaGuardia Community College, Business Services.')&&about.includes('Franklin &amp; Marshall College.'),'Timeline entries missing');

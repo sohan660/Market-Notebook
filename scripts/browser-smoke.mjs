@@ -38,7 +38,7 @@ const checkNoErrors=label=>{
 try{
   await visit('');
   assert.equal(await page.locator('.home-update-card').count(),3);
-  assert.equal(await page.locator('.home-feedback-actions a').count(),2);
+  assert.equal(await page.locator('.home-feedback').count(),0);
   assert.ok((await page.locator('.home-release-stamp').textContent()).includes('Updated project'));
   assert.equal(await page.locator('.mobile-menu-toggle').isVisible(),true);
   assert.equal(await page.locator('.site-links').isVisible(),false);
@@ -153,7 +153,7 @@ try{
   assert.ok((await page.locator('.about-timeline-entry').first().textContent()).includes('Franklin & Marshall College'));
   assert.ok((await page.locator('.about-timeline-internship').textContent()).includes('SUMMER INTERNSHIP · 2025'));
   assert.ok((await page.locator('.about-timeline-internship').textContent()).includes('During my summer internship'));
-  assert.equal(await page.locator('.about-contact-links a').count(),2);
+  assert.equal(await page.locator('.about-contact-links a').count(),1);
   await page.screenshot({path:path.join(root,'screenshots','market-notebook-about.png'),animations:'disabled'});
   checkNoErrors('student-made About, feedback and new screenshots');
   console.log('Browser smoke tests passed.');
