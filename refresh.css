@@ -84,15 +84,23 @@
 .about-build-grid article>span{font:800 10px/1.4 system-ui,sans-serif;letter-spacing:.1em;color:#63806b}
 .about-page .about-build-grid h3{font:700 22px/1.25 Georgia,serif;margin:17px 0 10px;color:#28543e}
 .about-build-grid p{font:14px/1.65 system-ui,sans-serif;color:#586e5d;margin:0}
-.about-background-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0 7px}
-.about-background-card{min-width:0;padding:25px 25px 23px;border:1px solid #dbe5d9;border-radius:12px;background:#fffefa}
-.about-background-card.internship-card{background:#eef4eb;border-color:#cbdcc9}
-.about-entry-type{display:inline-block;color:#3c6c4d;font:800 10px/1.4 system-ui,sans-serif;letter-spacing:.12em}
-.about-background-card .about-entry-date{font:750 13px/1.4 system-ui,sans-serif;color:#527257;margin:15px 0 7px}
-.about-page .about-background-card h3{font:700 25px/1.18 Georgia,serif;color:#28543e;padding:0;margin:0 0 12px}
-.about-background-card p{font:14px/1.7 system-ui,sans-serif;color:#526958;margin:0}
-.about-background-card .about-entry-org{font-weight:750;color:#3e644b;margin:0 0 10px}
-@media(max-width:680px){.about-background-grid{grid-template-columns:1fr}.about-background-card{padding:22px}}
+/* The original simple timeline: education and internship share the visual chronology,
+   but the internship has its own unmistakable label. */
+.about-timeline{list-style:none;border-left:2px solid #c5d7c6;margin:28px 0 5px 7px;padding:0}
+.about-timeline-entry{position:relative;margin:0;padding:1px 0 37px 28px}
+.about-timeline-entry:last-child{padding-bottom:12px}
+.about-timeline-entry::before{content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:#62866c;border:2px solid #faf7f0;box-sizing:border-box}
+.about-timeline-date{display:block;color:#436a4c;font:800 13px/1.5 system-ui,sans-serif;letter-spacing:.035em;margin-bottom:11px}
+.about-timeline-internship .about-timeline-date{letter-spacing:.09em;color:#336548}
+.about-timeline-entry p{font:15px/1.8 system-ui,sans-serif;color:#526958;margin:0;max-width:900px}
+.about-timeline-entry strong{font:700 19px/1.45 Georgia,'Times New Roman',serif;color:#264b39}
+@media(max-width:600px){
+  .about-timeline{margin-top:24px;margin-left:5px}
+  .about-timeline-entry{padding-left:22px;padding-bottom:31px}
+  .about-timeline-entry p{font-size:14px;line-height:1.75}
+  .about-timeline-entry strong{font-size:18px}
+  .about-timeline-date{font-size:12px}
+}
 .about-values{max-width:900px}
 .about-contact{display:flex;align-items:center;justify-content:space-between;gap:30px;background:#e8f0e6;border:1px solid #d5e2d3;border-radius:14px;padding:27px 30px;margin:30px 0 40px;scroll-margin-top:30px}
 .about-contact>div:first-child{max-width:620px}
